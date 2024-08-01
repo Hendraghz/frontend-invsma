@@ -1,0 +1,23 @@
+#root {
+  max-width: 1280px;
+  margin: 0;
+  padding: 0;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+.desc-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.desc-content.show {
+  max-height: 1000px; /* Sesuaikan dengan tinggi konten maksimum Anda */
+}
+
+.service-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
