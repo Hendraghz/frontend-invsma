@@ -3,10 +3,9 @@ import Sidebar from "./layout/Sidebar";
 import img from "../assets/images/pagenotfound.png";
 const NotFound = () => {
   return (
-    <div className="flex h-screen">
-      <Sidebar />
-      <div className="main border-l flex-grow flex justify-center">
-        <div className="pt-[6rem] px-10 pb-[3rem] flex justify-center w-full">
+    <div className="flex h-screen w-screen justify-center items-center">
+      <div className="main">
+        <div className="">
           <div>
             <div className="flex justify-center">
               <img src={img} alt="" width={450} />

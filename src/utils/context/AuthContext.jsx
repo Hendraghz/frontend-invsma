@@ -1,42 +1,92 @@
 // src/utils/context/AuthContext.jsx
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
+import  { jwtDecode } from "jwt-decode";
 import { login as loginApi, register as registerApi } from "../../api/auth";
+import { ApiUrl } from "../../api/baseUrl";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-
   const [loading, setLoading] = useState(true);
+  const [authTokens, setAuthTokens] = useState(() =>
+    localStorage.getItem("authTokens")
+      ? JSON.parse(localStorage.getItem("authTokens"))
+      : null
+  );
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = authTokens?.accessToken;
     if (token) {
-      setUser({ token });
+      const decoded = jwtDecode(token);
+      setUser(decoded);
     }
     setLoading(false);
-  }, []);
+  }, [authTokens]);
 
   const login = async (email, password) => {
-    const data = await loginApi(email, password);
-    const token = data.token;
-    localStorage.setItem("token", token);
-    setUser({ token });
+    const response = await loginApi(email, password);
+    const { accessToken, refreshToken } = response;
+    const decoded = jwtDecode(accessToken);
+    setAuthTokens({ accessToken, refreshToken });
+    setUser(decoded);
+    localStorage.setItem(
+      "authTokens",
+      JSON.stringify({ accessToken, refreshToken })
+    );
+    return decoded; 
   };
 
   const register = async (formData) => {
-    const data = await registerApi(formData);
-    const token = data.token;
-    localStorage.setItem("token", token);
-    setUser({ token });
-    console.log(user);
+    const response = await registerApi(formData);
+    const { accessToken, refreshToken } = response;
+    const decoded = jwtDecode(accessToken);
+    setAuthTokens({ accessToken, refreshToken });
+    setUser(decoded);
+    localStorage.setItem(
+      "authTokens",
+      JSON.stringify({ accessToken, refreshToken })
+    );
   };
 
-  const logout = () => {
-    localStorage.removeItem("token");
+  const logout = useCallback(() => {
+    localStorage.removeItem("authTokens");
+    setAuthTokens(null);
     setUser(null);
-  };
+  }, []);
+
+  const refreshToken = useCallback(async () => {
+    try {
+      const response = await axios.get(`${ApiUrl}/token`, {
+        token: authTokens,
+      });
+      const { accessToken } = response.data;
+      setAuthTokens((prev) => ({ ...prev, accessToken }));
+      const decoded = jwtDecode(accessToken);
+      setUser(decoded);
+      localStorage.setItem(
+        "authTokens",
+        JSON.stringify({
+          ...authTokens,
+          accessToken,
+        })
+      );
+      console.log("Token refreshed at:", new Date().toLocaleTimeString());
+    } catch (error) {
+      logout();
+    }
+  }, [authTokens, logout]);
+
+  useEffect(() => {
+    if (authTokens) {
+      const interval = setInterval(() => {
+        refreshToken();
+      }, 14 * 60 * 1000); // Refresh token setiap 14 menit
+      return () => clearInterval(interval);
+    }
+  }, [authTokens, refreshToken]);
 
   if (loading) {
     return (
@@ -60,7 +110,7 @@ export const AuthProvider = ({ children }) => {
           </svg>
         </div>
       </div>
-    ); // Or a spinner, or null
+    );
   }
 
   return (

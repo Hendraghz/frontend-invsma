@@ -2,7 +2,31 @@ import { Link } from "react-router-dom";
 import { project } from "../data";
 import Sidebar from "../layout/Sidebar";
 import ChartComponent from "../components/Chart";
+import { jwtDecode } from "jwt-decode";
+import { useEffect, useState } from "react";
+import { getTotalTransaksi } from "../../api/transaksi/transaksi";
 const Dashboard = () => {
+  const [total, setTotal] = useState([]);
+  const token = localStorage.getItem("authTokens");
+  const decoded = jwtDecode(token);
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      try {
+        const response = await getTotalTransaksi(decoded.userId);
+        setTotal(response);
+      } catch (error) {
+        console.error("Error fetching transactions:", error);
+      }
+    };
+    fetchTransactions();
+  }, []);
+
+  const numberFormat = (value) =>
+    new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(value);
+
   return (
     <div className="flex">
       <Sidebar />
@@ -62,7 +86,7 @@ const Dashboard = () => {
                         </svg>
                       </div>
                       <p className="mt-[1rem] font-bold text-sm">
-                        Rp. 138.000.000
+                        {numberFormat(total)}
                       </p>
                     </div>
                     <div className="mt-[1rem]">

@@ -11,7 +11,7 @@ const Layanan = () => {
     }
   };
   return (
-    <div>
+    <div className="px-4 md:px-10">
       {" "}
       <div>
         <p className="text-color-1 font-bold text-2xl">LAYANAN INVSMA</p>

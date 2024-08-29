@@ -1,6 +1,6 @@
 const Kontak = () => {
   return (
-    <div>
+    <div className="px-4 md:px-10">
       <div className="text-left">
         <p className="title font-bold text-2xl mt-[2rem] text-color-1 py-2">
           Kontak Kami

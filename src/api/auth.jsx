@@ -1,21 +1,25 @@
 import axios from "axios";
-
-const API_URL = "http://localhost:8080/api";
+import { ApiUrl } from "./baseUrl";
 
 export const login = async (email, password) => {
-  const response = await axios.post(`${API_URL}/v1/sessions`, {
+  const response = await axios.post(`${ApiUrl}/login`, {
     email,
     password,
   });
-  return response.data.data;
+  return response.data;
+};
+
+export const gerUsers = async (userData) => {
+  const response = await axios.get(`${ApiUrl}/users`, userData);
+  return response.data;
 };
 
 export const register = async (userData) => {
-  const response = await axios.post(`${API_URL}/v1/users`, userData);
+  const response = await axios.post(`${ApiUrl}/users`, userData);
   return response.data;
 };
 
 export const logout = async () => {
-  const response = await axios.get(`${API_URL}/logout`);
+  const response = await axios.get(`${ApiUrl}/logout`);
   return response.data;
 };

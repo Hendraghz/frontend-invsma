@@ -2,11 +2,15 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../utils/context/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 const DropdownProfile = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const token = localStorage.getItem("authTokens");
+  const decoded = jwtDecode(token);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -37,7 +41,7 @@ const DropdownProfile = () => {
             />
           </svg>
         </div>
-        <span className="ml-2 font-bold">Ghufron</span>
+        <span className="ml-2 font-bold w-[8rem]">{decoded.name}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

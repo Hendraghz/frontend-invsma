@@ -9,7 +9,7 @@ const Berita = () => {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div>
+    <div className="px-4 md:px-10">
       <div className="text-center">
         <p className="title font-bold text-2xl mt-[4rem] text-color-1 py-2">
           Artikel & Pembelajaran

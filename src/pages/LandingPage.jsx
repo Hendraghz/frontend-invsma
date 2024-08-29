@@ -13,6 +13,7 @@ import Project from "./components/LandingPage/Project";
 import KenapaKami from "./components/LandingPage/KenapaKami";
 import Berita from "./components/LandingPage/Berita";
 import Kontak from "./components/LandingPage/Kontak";
+import SyariahPrinsip from "./components/LandingPage/SyariahPrinsip";
 
 const images = [
   `url(${dash1})`,
@@ -36,6 +37,7 @@ const LandingPage = () => {
   const heroStyle = {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), ${images[currentImage]}`,
     backgroundSize: "cover",
+    backgroundPosition: "center",
     height: "100vh",
     width: "100vw",
   };
@@ -43,33 +45,39 @@ const LandingPage = () => {
   return (
     <>
       <Navbar />
-      <div style={heroStyle} className="pt-[13rem] ">
-        <div className="title pl-[5rem]">
-          <p className="font-bold text-white text-6xl">
-            Unlock your financial potential with <br />{" "}
+      <div
+        style={heroStyle}
+        className="pt-[13rem] md:pt-[8rem] px-4 md:px-[5rem] flex flex-col justify-center items-center text-center md:text-left"
+      >
+        <div className="title text-left">
+          <p className="font-bold text-white text-3xl md:text-6xl leading-tight">
+            Unlock your financial potential with{" "}
+            <br className="hidden md:block" />{" "}
             <span className="text-color-2">comprehensive planning</span>
           </p>
-          <p className="font-normal text-white text-2xl mt-[2rem]">
+          <p className="font-normal text-white text-xl md:text-2xl mt-4 md:mt-[2rem]">
             Layanan konsultasi keuangan komprehensif yang disesuaikan dengan
             kebutuhan Anda
           </p>
-          <p className="font-bold text-color-2 text-[1.2rem] mt-[3rem] text-center">
+          <p className="font-bold text-color-2 text-lg md:text-[1.2rem] mt-6 md:mt-[3rem] text-center md:text-left">
             Mulai sekarang juga
           </p>
-          <div className="flex items-center justify-center mt-[1rem] gap-3">
-            <button className="px-3 py-2 bg-color-2 text-color-1 rounded-md hover:bg-lime-100">
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-start mt-4 md:mt-[1rem] gap-3">
+            <button className="px-4 py-2 bg-color-2 text-color-1 rounded-md hover:bg-lime-100">
               Daftar Sebagai Investor
             </button>
             <p className="text-white font-medium">ATAU</p>
-            <button className="px-3 py-2 bg-color-2 text-color-1 rounded-md hover:bg-lime-100">
+            <button className="px-4 py-2 bg-color-2 text-color-1 rounded-md hover:bg-lime-100">
               Mengajukan Pendanaan
             </button>
           </div>
         </div>
       </div>
-      <div className="pt-[4rem] pl-[4rem] lg:w-screen px-10 ">
+      <div className="pt-[4rem]  lg:w-screen">
         {/* Layanan */}
         <Layanan />
+        {/* Prinsip */}
+        <SyariahPrinsip />
         {/* Project */}
         <Project />
         {/* Why Us */}

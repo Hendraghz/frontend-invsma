@@ -14,7 +14,23 @@ import Dashboard from "./pages/users/Dashboard";
 import NotFound from "./pages/notFound";
 import { AuthProvider } from "./utils/context/AuthContext";
 import PrivateRoute from "./routes/PrivateRoutes";
-import AjukanPendanaan from "./pages/users/AjukanPendanaan";
+import AjukanPendanaan from "./pages/users/pendanaanProject/AjukanPendanaan";
+import DataTransaksi from "./pages/users/DataTransaksi";
+import Transaksi from "./pages/users/Transaksi";
+import Bisnis from "./pages/users/Bisnis";
+import BuatPendanaan from "./pages/users/pendanaanProject/BuatPendanaan";
+import EditPendanaan from "./pages/users/pendanaanProject/EditPendanaan";
+import DashboardAdmin from "./pages/admin/DashboardAdmin";
+import VerifikasiDataAdmin from "./pages/admin/VerifikasiDataAdmin";
+import CekSertifikat from "./pages/users/CekSertifikat";
+import FrequentlyAsked from "./pages/users/FrequentlyAsked";
+import ImbaHasil from "./pages/users/ImbaHasil";
+import Dividen from "./pages/users/Dividen";
+import Kupon from "./pages/users/Kupon";
+import Profile from "./pages/users/Profile";
+import PasarSekunder from "./pages/users/PasarSekunder";
+import DataProject from "./pages/admin/project/DataProject";
+import DetailProjectAdmin from "./pages/admin/project/DetailProjectAdmin";
 
 function App() {
   return (
@@ -37,6 +53,22 @@ function App() {
               }
             />
             <Route
+              path="/edit-pendanaan/:id"
+              element={
+                <PrivateRoute>
+                  <EditPendanaan />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/create-pendanaan"
+              element={
+                <PrivateRoute>
+                  <BuatPendanaan />
+                </PrivateRoute>
+              }
+            />
+            <Route
               path="/pilih-role"
               element={
                 <PrivateRoute>
@@ -45,10 +77,106 @@ function App() {
               }
             />
             <Route
+              path="/cek-sertifikat"
+              element={
+                <PrivateRoute>
+                  <CekSertifikat />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/data-transaksi"
+              element={
+                <PrivateRoute>
+                  <DataTransaksi />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/transaksi/:id"
+              element={
+                <PrivateRoute>
+                  <Transaksi />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/bisnis"
+              element={
+                <PrivateRoute>
+                  <Bisnis />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/faq"
+              element={
+                <PrivateRoute>
+                  <FrequentlyAsked />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/imba-hasil"
+              element={
+                <PrivateRoute>
+                  <ImbaHasil />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/pasar-sekunder"
+              element={
+                <PrivateRoute>
+                  <PasarSekunder />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dividen"
+              element={
+                <PrivateRoute>
+                  <Dividen />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/referal-kupon"
+              element={
+                <PrivateRoute>
+                  <Kupon />
+                </PrivateRoute>
+              }
+            />
+            <Route
               path="/verifikasi-data"
               element={
                 <PrivateRoute>
                   <VerifikasiData />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/verifikasi-project"
+              element={
+                <PrivateRoute>
+                  <DataProject />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/detail-project-admin"
+              element={
+                <PrivateRoute>
+                  <DetailProjectAdmin />
                 </PrivateRoute>
               }
             />
@@ -66,6 +194,23 @@ function App() {
               element={
                 <PrivateRoute>
                   <Dashboard />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/dashboard-admin"
+              element={
+                <PrivateRoute>
+                  <DashboardAdmin />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/verifikasi-data-admin"
+              element={
+                <PrivateRoute>
+                  <VerifikasiDataAdmin />
                 </PrivateRoute>
               }
             />

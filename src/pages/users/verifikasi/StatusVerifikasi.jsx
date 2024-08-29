@@ -1,6 +1,10 @@
+import { jwtDecode } from "jwt-decode";
 import Sidebar from "../../layout/Sidebar";
 
 const StatusVerifikasi = () => {
+  const token = localStorage.getItem("authTokens");
+  const decoded = jwtDecode(token);
+ 
   return (
     <div className="flex">
       <Sidebar />
@@ -38,11 +42,11 @@ const StatusVerifikasi = () => {
             <div className="flex items-center justify-center gap-[7rem] mt-[3rem]">
               <div>
                 <p className="font-light">Mobile Number</p>
-                <p>+628123123731</p>
+                <p></p>
               </div>
               <div>
                 <p className="font-light">Email Address</p>
-                <p>example@gmail.com</p>
+                <p>{decoded.email}</p>
               </div>
             </div>
           </div>

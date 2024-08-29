@@ -1,40 +1,64 @@
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import Sidebar from "./layout/NavbarUser";
 import Footer from "./layout/Footer";
-import { useParams } from "react-router-dom";
-import { project } from "./data";
 import MenuProject from "./components/ProjectSection/MenuProject";
+import { getProjectById } from "../api/project/apiproject";
+import { ApiUrl } from "../api/baseUrl";
 
 const DetailProject = () => {
   const { id } = useParams();
-  const projectId = parseInt(id, 10);
-  const projectData = project.find((p) => p.id === projectId);
+  const [projectData, setProjectData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getProjectById(id);
+        setProjectData(data);
+      } catch (error) {
+        console.error("Error fetching project data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [id]);
+  const numberFormat = (value) =>
+    new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(value);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   if (!projectData) {
     return <div>Project not found</div>;
   }
-
-  const tercapaiNum = parseInt(projectData.tercapai.replace(/[^\d]/g, ""), 10);
-  const targetNum = parseInt(projectData.Target.replace(/[^\d]/g, ""), 10);
+  const tercapaiNum = projectData.tercapai;
+  const targetNum = projectData.target;
   const percentage = (tercapaiNum / targetNum) * 100;
+
   return (
     <div>
       <Sidebar />
       <div className="pt-[4rem] flex justify-center">
         <div className="mt-[4rem]">
           <img
-            src={projectData.image}
+            src={`${ApiUrl}${projectData.image}`}
             alt=""
             className="h-[20rem] rounded-md"
           />
         </div>
-        <div className="mt-[4rem] ml-[5rem]">
+        <div className="mt-[4rem] ml-[5rem] w-4/12">
           <div className="category w-fit">
             <p className="px-2 py-1 text-white uppercase text-sm bg-color-1 rounded-md">
               {projectData.tipe}
             </p>
           </div>
           <div className="judul mt-[1rem]">
-            <p className="text-color-1 font-bold text-2xl uppercase">
+            <p className="text-color-1 font-bold text-2xl uppercase w-[32rem]">
               {projectData.nama} - {projectData.oleh} | Tahun 2024
             </p>
             <p className="text-black font-normal text-lg mb-[2rem] mt-[1rem] w-[30rem] text-justify">
@@ -83,14 +107,16 @@ const DetailProject = () => {
               </p>
               <div className="flex justify-between items-center mt-[1rem]">
                 <div className="tercapai text-left">
-                  <p className="text-lg mb-2 font-bold">Tercapai</p>
+                  <p className="text-xs mb-2">Tercapai</p>
                   <p className="text-sm text-color-1 font-bold">
-                    {projectData.tercapai}
+                    {numberFormat(projectData.tercapai)}
                   </p>
                 </div>
-                <div className="tercapai text-right">
-                  <p className="text-lg mb-2 font-bold text-[1.3rem]">Target</p>
-                  <p className="text-sm text-color-1">{projectData.Target}</p>
+                <div className="tercapai text-right ">
+                  <p className="text-xs mb-2">Target</p>
+                  <p className="text-sm text-color-1">
+                    {numberFormat(projectData.target)}
+                  </p>
                 </div>
               </div>
               <div className="bg-gray-200 rounded-full h-2.5 mt-3">
@@ -103,9 +129,11 @@ const DetailProject = () => {
           </div>
           <div className="flex justify-between items-center mt-[2rem]">
             <div className="flex items-center gap-3">
-              <button className="px-5 py-2 bg-color-1 text-white text-sm uppercase  rounded-md hover:bg-green-700">
-                Investasi
-              </button>
+              <Link to={`/transaksi/${projectData.id}`}>
+                <button className="px-5 py-2 bg-color-1 text-white text-sm uppercase  rounded-md hover:bg-green-700">
+                  Investasi
+                </button>
+              </Link>
               <button className="px-5 py-2 bg-white text-color-1 text-sm uppercase  rounded-md flex items-center gap-4 border border-color-gray-300 shadow-md hover:bg-gray-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

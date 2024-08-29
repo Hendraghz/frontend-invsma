@@ -1,78 +1,75 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { ApiUrl } from "../../../api/baseUrl";
+import maps from "../../../assets/images/maps.png"
 
 const MenuProject = ({ projectData }) => {
   const [activeSection, setActiveSection] = useState("Informasi Project");
   const handleSectionClick = (section) => {
     setActiveSection(section);
   };
-
+  const renderContent = (text, image) => {
+    return (
+      <>
+        {image && (
+          <div className="mb-4">
+            <img
+              src={`${ApiUrl}${image}`}
+              alt="Section Image"
+              className="max-w-full h-auto rounded-md"
+            />
+          </div>
+        )}
+        {text && (
+          <p className="text-black font-normal text-lg mb-[2rem] mt-[1rem] w-[50rem] text-justify">
+            {text}
+          </p>
+        )}
+      </>
+    );
+  };
   const renderSection = () => {
     switch (activeSection) {
       case "Finansial":
         return (
           <div className="financial mt-[2rem] px-2">
             <h2 className="text-color-1 font-bold text-2xl uppercase">
-              Keuangan (2 Tahun)
+              Review Financial
             </h2>
-            <p className="text-black font-normal text-lg mb-[2rem] mt-[1rem] w-[50rem] text-justify">
-              Dalam dua tahun terakhir, kami telah mencapai pertumbuhan yang
-              signifikan dalam pendapatan dan laba bersih. Kami telah
-              menginvestasikan sumber daya kami dengan bijak untuk memastikan
-              stabilitas keuangan jangka panjang dan mempertahankan tren positif
-              dalam semua metrik keuangan utama.
-            </p>
-            <p className="text-black font-normal text-lg mb-[2rem] mt-[1rem] w-[50rem] text-justify">
-              Selain itu, kami telah mengurangi utang dan meningkatkan arus kas
-              operasional, yang memberikan kami fleksibilitas untuk berinvestasi
-              lebih lanjut dalam peluang bisnis baru dan memperkuat posisi pasar
-              kami. Kami berkomitmen untuk terus mengoptimalkan kinerja keuangan
-              kami demi kepentingan semua pemangku kepentingan.
-            </p>
+            <div className="w-full flex justify-center">
+              {renderContent(
+                projectData.financialHighlights,
+                projectData.image_finansial
+              )}
+            </div>
           </div>
         );
-      case "Skema Investasi":
+      case "Laporan Laba Rugi":
         return (
           <div className="investment-scheme mt-[2rem] px-2">
             <h2 className="text-color-1 font-bold text-2xl uppercase">
-              Skema Investasi (1 Bulan)
+              Laporan Laba Rugi
             </h2>
-            <p className="text-black font-normal text-lg mb-[2rem] mt-[1rem] w-[50rem] text-justify">
-              Selama satu bulan terakhir, skema investasi kami telah menunjukkan
-              hasil yang menggembirakan dengan tingkat pengembalian sebesar 5%.
-              Strategi investasi kami yang terdiversifikasi dan analisis pasar
-              yang mendalam telah membantu kami mencapai hasil ini.
-            </p>
-            <p className="text-black font-normal text-lg mb-[2rem] mt-[1rem] w-[50rem] text-justify">
-              Dengan berfokus pada sektor-sektor yang memiliki potensi
-              pertumbuhan tinggi dan mengelola risiko dengan hati-hati, kami
-              yakin bahwa skema investasi kami akan terus memberikan
-              pengembalian yang kompetitif bagi para investor dalam jangka
-              panjang.
-            </p>
+            <div className="w-full flex justify-center">
+              {renderContent(
+                projectData.laporanLabaRugi,
+                projectData.image_labaRugi
+              )}
+            </div>
           </div>
         );
-      case "Informasi Infrastruktur":
+      case "Analisa Resiko":
         return (
           <div className="infrastructure mt-[2rem] px-2">
             <h2 className="text-color-1 font-bold text-2xl uppercase">
-              Informasi Infrastruktur
+              Analisa Resiko
             </h2>
-            <p className="text-black font-normal text-lg mb-[2rem] mt-[1rem] w-[50rem] text-justify">
-              Kami telah mengembangkan infrastruktur yang solid untuk mendukung
-              pertumbuhan bisnis kami. Ini mencakup jaringan distribusi yang
-              luas, fasilitas produksi yang modern, dan teknologi informasi yang
-              canggih. Infrastruktur ini memungkinkan kami untuk beroperasi
-              dengan efisiensi tinggi dan memberikan layanan terbaik kepada
-              pelanggan.
-            </p>
-            <p className="text-black font-normal text-lg mb-[2rem] mt-[1rem] w-[50rem] text-justify">
-              Selain itu, kami terus berinvestasi dalam peningkatan
-              infrastruktur untuk memastikan bahwa kami tetap berada di garis
-              depan industri. Proyek-proyek baru sedang dalam pengembangan untuk
-              memperluas kapasitas dan meningkatkan kinerja operasional kami
-              secara keseluruhan.
-            </p>
+            <div className="w-full flex justify-center">
+              {renderContent(
+                projectData.analisaResiko,
+                projectData.image_analisaResiko
+              )}
+            </div>
           </div>
         );
       case "Strategi Bisnis":
@@ -101,19 +98,14 @@ const MenuProject = ({ projectData }) => {
             <h2 className="text-color-1 font-bold text-2xl uppercase">
               Lokasi Project
             </h2>
-            <p className="text-black font-normal text-lg mb-[2rem] mt-[1rem] w-[50rem] text-justify">
-              Proyek-proyek kami tersebar di berbagai lokasi strategis untuk
-              memaksimalkan aksesibilitas dan efisiensi operasional. Setiap
-              lokasi dipilih berdasarkan analisis yang mendalam untuk memastikan
-              bahwa kami dapat mencapai tujuan bisnis kami dengan efektif.
-            </p>
-            <p className="text-black font-normal text-lg mb-[2rem] mt-[1rem] w-[50rem] text-justify">
-              Dari kawasan industri hingga pusat kota, kami memastikan bahwa
-              setiap proyek kami didukung oleh infrastruktur yang memadai dan
-              akses yang baik ke sumber daya penting. Hal ini memungkinkan kami
-              untuk beroperasi dengan optimal dan memberikan nilai tambah kepada
-              pelanggan kami.
-            </p>
+            <div className="w-full flex justify-center">
+              {renderContent(projectData.lokasiProject)}
+            </div>
+            <div className="w-full flex justify-center">
+              <a href={projectData.urlLokasi} target="_blank" className="flex items-center flex-col gap-2 text-blue-600 ">Klik untuk Melihat lokasi Google Map
+                <img src={maps} alt="" className="w-[10rem]" />
+              </a>
+            </div>
           </div>
         );
       default:
@@ -138,8 +130,8 @@ const MenuProject = ({ projectData }) => {
             {[
               "Informasi Project",
               "Finansial",
-              "Skema Investasi",
-              "Informasi Infrastruktur",
+              "Laporan Laba Rugi",
+              "Analisa Resiko",
               "Strategi Bisnis",
               "Lokasi Project",
             ].map((section) => (
@@ -169,11 +161,23 @@ MenuProject.propTypes = {
     oleh: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
     tipe: PropTypes.string.isRequired,
-    tercapai: PropTypes.string.isRequired,
-    Target: PropTypes.string.isRequired,
+    tercapai: PropTypes.number.isRequired,
+    target: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     lokasi: PropTypes.string.isRequired,
-    waktu_tersisa: PropTypes.string.isRequired,
+    lokasiProject: PropTypes.string.isRequired,
+    urlLokasi: PropTypes.string.isRequired,
+    waktu_tersisa: PropTypes.number.isRequired,
+    rencanaAnggaran: PropTypes.string,
+    financialHighlights: PropTypes.string,
+    laporanLabaRugi: PropTypes.string,
+    analisaResiko: PropTypes.string,
+    image_legal: PropTypes.string,
+    image_pemegangSaham: PropTypes.string,
+    image_rencanaAnggaran: PropTypes.string,
+    image_finansial: PropTypes.string,
+    image_labaRugi: PropTypes.string,
+    image_analisaResiko: PropTypes.string,
   }).isRequired,
 };
 

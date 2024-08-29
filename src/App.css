@@ -21,3 +21,19 @@
   align-items: center;
   cursor: pointer;
 }
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hapus panah up/down di input type="number" di Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Hapus panah up/down di input type="number" di Internet Explorer 10+ */
+input[type="number"] {
+  -ms-appearance: none;
+}
