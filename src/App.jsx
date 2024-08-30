@@ -26,6 +26,7 @@ import CekSertifikat from "./pages/users/CekSertifikat";
 import FrequentlyAsked from "./pages/users/FrequentlyAsked";
 import ImbaHasil from "./pages/users/ImbaHasil";
 import Dividen from "./pages/users/Dividen";
+import DetailDividen from "./pages/users/DetailDividen";
 import Kupon from "./pages/users/Kupon";
 import DetailKupon from "./pages/users/DetailKupon";
 import KodeReferal from "./pages/users/KodeReferal";
@@ -140,6 +141,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Dividen />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/detail-dividen"
+              element={
+                <PrivateRoute>
+                  <DetailDividen />
                 </PrivateRoute>
               }
             />
