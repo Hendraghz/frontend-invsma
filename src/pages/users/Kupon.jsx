@@ -23,7 +23,11 @@ const Kupon = () => {
                 </p>
               </div>
               <div>
-                <button className="px-3 py-1 bg-color-1 text-white rounded-md">Code Referal</button>
+                <Link to="/kode-referal">
+                  <button className="px-3 py-2 bg-color-1 text-white rounded-md">
+                    Kode Referal
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -28,6 +28,7 @@ import ImbaHasil from "./pages/users/ImbaHasil";
 import Dividen from "./pages/users/Dividen";
 import Kupon from "./pages/users/Kupon";
 import DetailKupon from "./pages/users/DetailKupon";
+import KodeReferal from "./pages/users/KodeReferal";
 import Profile from "./pages/users/Profile";
 import Portofolio from "./pages/users/Portofolio";
 import PasarSekunder from "./pages/users/PasarSekunder";
@@ -171,6 +172,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <DetailKupon />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/kode-referal"
+              element={
+                <PrivateRoute>
+                  <KodeReferal />
                 </PrivateRoute>
               }
             />
