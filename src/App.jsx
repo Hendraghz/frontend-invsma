@@ -27,6 +27,7 @@ import FrequentlyAsked from "./pages/users/FrequentlyAsked";
 import ImbaHasil from "./pages/users/ImbaHasil";
 import Dividen from "./pages/users/Dividen";
 import Kupon from "./pages/users/Kupon";
+import DetailKupon from "./pages/users/DetailKupon";
 import Profile from "./pages/users/Profile";
 import Portofolio from "./pages/users/Portofolio";
 import PasarSekunder from "./pages/users/PasarSekunder";
@@ -162,6 +163,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Kupon />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/detail-kupon"
+              element={
+                <PrivateRoute>
+                  <DetailKupon />
                 </PrivateRoute>
               }
             />

@@ -1,4 +1,5 @@
 import Sidebar from "../layout/Sidebar";
+import { Link } from 'react-router-dom';
 
 const Kupon = () => {
   return (
@@ -81,9 +82,11 @@ const Kupon = () => {
                   <th
                     scope="row"
                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  > <button className="px-3 py-1 bg-color-2 text-white rounded-md">
-                      Detail
-                    </button>
+                  > <Link to="/detail-kupon">
+                      <button className="px-3 py-1 bg-color-2 text-white rounded-md">
+                        Detail
+                      </button>
+                    </Link>
                   </th>
                 </tr>
               </tbody>
