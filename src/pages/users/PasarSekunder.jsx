@@ -1,53 +1,38 @@
 import Sidebar from "../layout/Sidebar";
+import { useEffect, useState } from "react";
+import { getProject } from "../../api/project/apiproject.jsx";
+import { ApiUrl } from "../../api/baseUrl.jsx";
 
 const PasarSekunder = () => {
-  const data = [
-    {
-      no: 1,
-      namaBisnis: "PT INVSMA",
-      hargaAcuan: "Rp. 2200",
-      hargaSaham: "Rp. 2400",
-      jumlahInvestor: "1.500",
-      sahamTersedia: "2.000.000",
-    },
-    {
-      no: 2,
-      namaBisnis: "PT ABCD",
-      hargaAcuan: "Rp. 5000",
-      hargaSaham: "Rp. 5200",
-      jumlahInvestor: "2.300",
-      sahamTersedia: "1.500.000",
-    },
-    {
-      no: 3,
-      namaBisnis: "PT XYZ",
-      hargaAcuan: "Rp. 7500",
-      hargaSaham: "Rp. 7400",
-      jumlahInvestor: "1.800",
-      sahamTersedia: "3.000.000",
-    },
-    {
-      no: 4,
-      namaBisnis: "PT EFGH",
-      hargaAcuan: "Rp. 15000",
-      hargaSaham: "Rp. 14700",
-      jumlahInvestor: "2.000",
-      sahamTersedia: "1.000.000",
-    },
-    {
-      no: 5,
-      namaBisnis: "PT JKLM",
-      hargaAcuan: "Rp. 8000",
-      hargaSaham: "Rp. 8200",
-      jumlahInvestor: "1.200",
-      sahamTersedia: "2.500.000",
-    },
-  ];
+  const [loading, setLoading] = useState(true);
+  const [project, setProject] = useState([]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getProject();
+        setProject(data || []);
+      } catch (error) {
+        console.error("Error fetching project data:", error);
+        setProject([]);
+      }
+    };
+    fetchData();
+  }, []);
+  const numberFormat = (value) =>
+    new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(value);
   return (
     <div className="flex w-screen">
       <Sidebar />
-      <div className="flex justify-center w-full border-l pt-[6rem]">
+      <div className="flex justify-center w-5/6 border-l pt-[6rem]">
         <div className="px-12 w-full">
           <div className="titlepage">
             <h1 className="font-bold text-xl text-color-1">
@@ -63,94 +48,108 @@ const PasarSekunder = () => {
             </div>
           </div>
 
-          <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-8">
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-                <tr>
-                  <th scope="col" className="px-6 py-3">
-                    No
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Nama Bisnis
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Harga Acuan
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Harga Saham Saat Ini
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Jumlah Investor
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Saham Tersedia
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item, index) => (
-                  <tr className="bg-white border-b" key={index}>
-                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                      {item.no}
-                    </td>
-                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                      {item.namaBisnis}
-                    </td>
-                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                      {item.hargaAcuan}
-                    </td>
-                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                      {item.hargaSaham}
-                    </td>
-                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                      {item.jumlahInvestor}
-                    </td>
-                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                      {item.sahamTersedia}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="flex mt-[2rem] pb-[4rem] justify-center items-center">
-            <button className="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 ">
-              <svg
-                className="w-3.5 h-3.5 me-2 rtl:rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M13 5H1m0 0 4 4M1 5l4-4"
-                />
-              </svg>
-              Previous
-            </button>
-            <p className="mx-8">Showing to Entries</p>
-            <button className="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 ">
-              Next
-              <svg
-                className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </button>
+          <div className="flex items-center gap-4 overflow-auto mt-[2rem]">
+            {loading ? (
+              Array.from({ length: 3 }).map((_, idx) => (
+                <div
+                  key={idx}
+                  className="w-[20rem] h-[30rem] bg-gray-100 animate-pulse rounded-md"
+                >
+                  <div className="w-2/3 p-4 md:m-4">
+                    <h1 className="w-40 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                    <p className="w-48 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <div className="flex mt-4 item-center gap-x-2">
+                      <p className="w-5 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                      <p className="w-5 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                      <p className="w-5 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                      <p className="w-5 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                      <p className="w-5 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    </div>
+                    <div className="flex justify-between mt-6 item-center">
+                      <h1 className="w-10 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                      <div className="h-4 bg-gray-200 rounded-lg w-28 dark:bg-gray-700"></div>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : project.length === 0 ? (
+              <div className="w-full text-center mt-[2rem]">
+                <p className="text-gray-500 text-xl">
+                  Tidak ada project tersedia.
+                </p>
+              </div>
+            ) : (
+              project.map((pro) => {
+                const tercapaiNum = pro.tercapai;
+                const targetNum = pro.target;
+                const percentage = (tercapaiNum / targetNum) * 100;
+
+                return (
+                  <div key={pro.id} className="pb-[1rem]">
+                    <div>
+                      <div className="w-[20rem] h-[36rem] shadow-xl text-black rounded-md border bg-white">
+                        <div>
+                          <img
+                            src={`${ApiUrl}${pro.image}`}
+                            alt={pro.nama}
+                            className="rounded-md h-[15rem]"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="tipe mt-[1rem] px-3">
+                          <p className="px-2 py-1 bg-color-1 text-white w-fit rounded-md uppercase text-xs">
+                            {pro.tipe}
+                          </p>
+                        </div>
+                        <div className="mt-[1rem] px-3 flex flex-col justify-between h-[16rem]">
+                          <div>
+                            <p className="text-base font-bold">
+                              {pro.nama} - {pro.oleh} | Tahun 2024
+                            </p>
+                            <p className="text-xs mt-1">{pro.desc}</p>
+                          </div>
+                          <div>
+                            <div className="flex justify-between items-center mt-[1rem]">
+                              <div className="tercapai text-left">
+                                <p className="text-xs mb-2">Tercapai</p>
+                                <p className="text-sm text-color-1 font-bold">
+                                  {numberFormat(pro.tercapai)}
+                                </p>
+                              </div>
+                              <div className="tercapai text-right ">
+                                <p className="text-xs mb-2">Target</p>
+                                <p className="text-sm text-color-1">
+                                  {numberFormat(pro.target)}
+                                </p>
+                              </div>
+                            </div>
+                            <div className="bg-gray-200 rounded-full h-2.5 mt-3">
+                              <div
+                                className="bg-color-1 h-2.5 rounded-full"
+                                style={{ width: `${percentage}%` }}
+                              ></div>
+                            </div>
+                            <div className="mt-3 flex items-center justify-between pb-[1rem]">
+                              <div className="sisawaktu">
+                                <p className="font-normal text-xs">
+                                  Waktu Tersisa
+                                </p>
+                                <p className="text-base font-medium">
+                                  {pro.waktu_tersisa}
+                                </p>
+                              </div>
+                              <button className="text-color-1 text-sm bg-color-2 px-2 py-2 rounded-md">
+                                Detail Project
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            )}
           </div>
         </div>
       </div>

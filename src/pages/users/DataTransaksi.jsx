@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import Sidebar from "../layout/Sidebar";
 import { getDataTransaksi } from "../../api/transaksi/transaksi";
 import { jwtDecode } from "jwt-decode";
+import { Link } from "react-router-dom";
 
 const getStatusClass = (status) => {
   switch (status) {
@@ -188,11 +188,11 @@ const DataTransaksi = () => {
                       </p>
                     </td>
                     <td className="px-6 py-4 text-right">
-                      <button
-                        className="font-medium hover:bg-color-1 hover:text-color-2 px-2 py-2 bg-color-2 text-color-1 rounded-md"
-                      >
-                        Detail
-                      </button>
+                      <Link to={'/detail-transaksi'}>
+                        <button className="font-medium hover:bg-color-1 hover:text-color-2 px-2 py-2 bg-color-2 text-color-1 rounded-md">
+                          Detail
+                        </button>
+                      </Link>
                     </td>
                   </tr>
                 ))}

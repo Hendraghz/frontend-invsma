@@ -20,24 +20,26 @@ const PilihRole = () => {
         <img src="" alt="" />
         <div className=" flex justify-center w-[50rem] pt-[2rem] py-10 px-10 gap-10">
           <div className="flex justify-center">
-            <a
-              href=""
-              className="w-[18rem] bg-color-1  rounded-md pt-[2rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-100"
-            >
-              <div className="flex justify-center">
-                <img
-                  src={perusahaan}
-                  alt="perorang"
-                  className="w-[8rem] bg-white px-2 py-2 rounded-xl"
-                />
-              </div>
-              <div className="text-2xl font-medium text-white text-center mt-[0.6rem]">
-                Badan Hukum
-              </div>
-              <p className="text-center text-white text-xs font-light px-5 mt-[0.6rem] mb-[1rem]">
-                Anda dapat melakukan investasi dan juga pengajuan project
-              </p>
-            </a>
+            <Link to={"/verifikasi-data"}>
+              <a
+                href=""
+                className="w-[18rem] bg-color-1  rounded-md pt-[2rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-100"
+              >
+                <div className="flex justify-center">
+                  <img
+                    src={perusahaan}
+                    alt="perorang"
+                    className="w-[8rem] bg-white px-2 py-2 rounded-xl"
+                  />
+                </div>
+                <div className="text-2xl font-medium text-white text-center mt-[0.6rem]">
+                  Badan Hukum
+                </div>
+                <p className="text-center text-white text-xs font-light px-5 mt-[0.6rem] mb-[1rem]">
+                  Anda dapat melakukan investasi dan juga pengajuan project
+                </p>
+              </a>
+            </Link>
           </div>
           <Link to={"/verifikasi-data"}>
             <div className="flex items-center justify-center">

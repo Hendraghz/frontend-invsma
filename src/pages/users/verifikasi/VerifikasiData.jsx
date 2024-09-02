@@ -129,7 +129,7 @@ const VerifikasiData = () => {
     }
     try {
       await Verifikasi(data);
-      navigate("/status-verifikasi"); // Mengarahkan ke halaman verifikasi-status
+      navigate("/status-verifikasi");
     } catch (error) {
       Swal.fire({
         title: "Error",
@@ -163,10 +163,10 @@ const VerifikasiData = () => {
     setCurrentStep(3);
   };
   return (
-    <div className="flex">
+    <div className="flex w-screen">
       <Sidebar />
       <div className="pt-[6rem] px-10  pb-[3rem] border-l flex items-center justify-center w-full">
-        <div className="wrap">
+        <div className="wrap w-2/3">
           <div className="title flex items-center justify-center gap-4 px-2 py-3 border-b border-color-1 border-1">
             <div className="step1 flex items-center">
               <p className="px-2 py-1 bg-color-1 rounded-full text-white text-xs">
