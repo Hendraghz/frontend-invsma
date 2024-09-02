@@ -1,4 +1,5 @@
 import Sidebar from "../layout/Sidebar";
+import { Link } from 'react-router-dom';
 
 const Kupon = () => {
   return (
@@ -13,11 +14,20 @@ const Kupon = () => {
           </div>
           <div className="filter mt-[1rem] ">
             <div className="title flex justify-between">
-              <p className="font-normal text-xs ">
-                Anda Dapat melihat referal kupon secara detail 
-              </p>
+              <div className="title">
+                <h1 className="font-bold text-sm text-color-1">
+                  Kupon
+                </h1>
+                <p className="font-normal text-xs ">
+                  Anda Dapat melihat mengenai kupon disini
+                </p>
+              </div>
               <div>
-                <button className="px-3 py-1 bg-color-1 text-white rounded-md">Code Referal</button>
+                <Link to="/kode-referal">
+                  <button className="px-3 py-2 bg-color-1 text-white rounded-md">
+                    Kode Referal
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -76,9 +86,11 @@ const Kupon = () => {
                   <th
                     scope="row"
                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  > <button className="px-3 py-1 bg-color-2 text-white rounded-md">
-                    Detail
-                  </button>
+                  > <Link to="/detail-kupon">
+                      <button className="px-3 py-1 bg-color-2 text-white rounded-md">
+                        Detail
+                      </button>
+                    </Link>
                   </th>
                 </tr>
               </tbody>

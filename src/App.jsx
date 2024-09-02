@@ -26,8 +26,12 @@ import CekSertifikat from "./pages/users/CekSertifikat";
 import FrequentlyAsked from "./pages/users/FrequentlyAsked";
 import ImbaHasil from "./pages/users/ImbaHasil";
 import Dividen from "./pages/users/Dividen";
+import DetailDividen from "./pages/users/DetailDividen";
 import Kupon from "./pages/users/Kupon";
+import DetailKupon from "./pages/users/DetailKupon";
+import KodeReferal from "./pages/users/KodeReferal";
 import Profile from "./pages/users/Profile";
+import Portofolio from "./pages/users/Portofolio";
 import PasarSekunder from "./pages/users/PasarSekunder";
 import DataProject from "./pages/admin/project/DataProject";
 import DetailProjectAdmin from "./pages/admin/project/DetailProjectAdmin";
@@ -159,6 +163,22 @@ function App() {
               }
             />
             <Route
+              path="/detail-dividen"
+              element={
+                <PrivateRoute>
+                  <DetailDividen />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/portofolio"
+              element={
+                <PrivateRoute>
+                  <Portofolio />
+                </PrivateRoute>
+              }
+            />
+            <Route
               path="/profile"
               element={
                 <PrivateRoute>
@@ -171,6 +191,22 @@ function App() {
               element={
                 <PrivateRoute>
                   <Kupon />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/detail-kupon"
+              element={
+                <PrivateRoute>
+                  <DetailKupon />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/kode-referal"
+              element={
+                <PrivateRoute>
+                  <KodeReferal />
                 </PrivateRoute>
               }
             />
