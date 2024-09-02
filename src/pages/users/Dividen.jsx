@@ -1,5 +1,4 @@
 import Sidebar from "../layout/Sidebar";
-import { Link } from 'react-router-dom';
 
 const Dividen = () => {
   return (
@@ -15,10 +14,10 @@ const Dividen = () => {
           <div className="filter mt-[1rem]">
             <div className="title">
               <h1 className="font-bold text-sm text-color-1">
-                Dividen
+              Dividen
               </h1>
               <p className="font-normal text-xs ">
-                Anda Dapat melihat dividen secara detail
+                Anda Dapat melihat dividen secara detail 
               </p>
             </div>
           </div>
@@ -31,13 +30,13 @@ const Dividen = () => {
                     No
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Nama Investasi
+                    Nama Bisnis
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Jumlah Dividen (Rp)
+                    Jml Dividen 
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Tipe Investasi
+                    Tipe
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Tanggal Pembayaran
@@ -57,39 +56,41 @@ const Dividen = () => {
                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                   >1
                   </th>
-                  <td
+                  <th
+                    scope="row"
                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >PT Alpha Investama
-                  </td>
-                  <td
+                  >PT INVSMA
+                  </th>
+                  <th
+                    scope="row"
                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >Rp. 15,000
-                  </td>
-                  <td
+                  >15 Mei 2022
+                  </th>
+                  <th
+                    scope="row"
                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >Saham
-                  </td>
-                  <td
+                  >Obligasi
+                  </th>
+                  <th
+                    scope="row"
                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                   >25 April 2025
-                  </td>
-                  <td
+                  </th>
+                  <th
+                    scope="row"
                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                   >Success
-                  </td>
-                  <td
+                  </th>
+                  <th
+                    scope="row"
                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >
-                    <Link to="/detail-dividen">
-                      <button className="px-3 py-1 bg-color-2 text-white rounded-md">
-                        Detail
-                      </button>
-                    </Link>
-                  </td>
+                  > <button className="px-3 py-1 bg-color-2 text-white rounded-md">
+                    Detail
+                  </button>
+                  </th>
                 </tr>
               </tbody>
             </table>
-
           </div>
           <div className="flex mt-[2rem] pb-[4rem] justify-center items-center">
             <button className="flex items-center justify-center px-3 h-8  text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 ">
