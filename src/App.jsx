@@ -35,6 +35,8 @@ import Portofolio from "./pages/users/Portofolio";
 import PasarSekunder from "./pages/users/PasarSekunder";
 import DataProject from "./pages/admin/project/DataProject";
 import DetailProjectAdmin from "./pages/admin/project/DetailProjectAdmin";
+import DetailTransaksi from "./pages/users/transaksi/DetailTransaksi";
+import DetailImbaHasil from "./pages/users/ImbaHasil/DetailImbaHasil";
 
 function App() {
   return (
@@ -93,6 +95,22 @@ function App() {
               element={
                 <PrivateRoute>
                   <DataTransaksi />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/detail-transaksi"
+              element={
+                <PrivateRoute>
+                  <DetailTransaksi />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/detail-imba-hasil"
+              element={
+                <PrivateRoute>
+                  <DetailImbaHasil />
                 </PrivateRoute>
               }
             />

@@ -1,20 +1,20 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../../utils/context/AuthContext.jsx";
 import { Link, useNavigate } from "react-router-dom";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import Swal from "sweetalert2";
 import axios from "axios";
 import logo from "../../assets/images/Logo.png";
 import bg from "../../assets/images/bg-login.jpg";
-import google from "../../assets/DataDummy/google.png";
 import fb from "../../assets/DataDummy/facebook.png";
 import { jwtDecode } from "jwt-decode";
 import { ApiUrl } from "../../api/baseUrl.jsx";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [loading, setLoading] = useState(false); // Loading state
-  const [passwordVisible, setPasswordVisible] = useState(false); // State to manage password visibility
-  const { login } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const { login, loginWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const onChange = (e) => {
@@ -59,6 +59,18 @@ const Login = () => {
     } finally {
       setLoading(false); // Stop loading
     }
+  };
+
+  const handleSuccess = (credentialResponse) => {
+    console.log("Login Success:", credentialResponse);
+    const token = credentialResponse.credential;
+    localStorage.setItem("authToken", token);
+    loginWithGoogle(token);
+    navigate("/pilih-role");
+  };
+
+  const handleError = () => {
+    console.log("Login Failed");
   };
 
   const togglePasswordVisibility = () => {
@@ -162,35 +174,36 @@ const Login = () => {
                 >
                   Masuk
                 </button>
-                <div className="flex items-center justify-center mt-3 mb-3">
-                  <span className="w-36 bg-gray-400 h-0.5 block"></span>
-                  <p className="px-2">Or login with</p>
-                  <span className="w-36 bg-gray-400 h-0.5 block"></span>
-                </div>
-                <div className="flex items-center justify-between gap-3">
-                  <button
-                    type="submit"
-                    className="px-3 py-2 font-bold text-sm bg-white text-color-1 rounded-md w-full mt-[2rem] mb-[1rem] flex items-center justify-center text-nowrap gap-2 border border-gray-300 hover:bg-gray-100"
-                  >
-                    <img src={google} alt="" className="w-4" />
-                    Google
-                  </button>
-                  <button
-                    type="submit"
-                    className="px-3 py-2 font-bold text-sm bg-white text-color-1 rounded-md w-full mt-[2rem] mb-[1rem] flex items-center justify-center text-nowrap gap-2 border border-gray-300 hover:bg-gray-100"
-                  >
-                    <img src={fb} alt="" className="w-4" />
-                    Facebook
-                  </button>
-                </div>
-                <p className="font-normal text-md mt-[2rem]">
-                  Belum Mempunyai Akun?{" "}
-                  <Link to={"/register"}>
-                    <span className="text-blue-500">Registrasi Sekarang</span>
-                  </Link>
-                </p>
               </div>
             </form>
+            <div className="flex items-center justify-center mt-3 mb-3">
+              <span className="w-36 bg-gray-400 h-0.5 block"></span>
+              <p className="px-2">Or login with</p>
+              <span className="w-36 bg-gray-400 h-0.5 block"></span>
+            </div>
+            <GoogleOAuthProvider clientId="458402602412-ckbts9viu0mpn786une96i5gn4jtnv8j.apps.googleusercontent.com">
+              <div className="flex items-center justify-between gap-3">
+                <div className="mt-[2rem] mb-[1rem]">
+                  <GoogleLogin
+                    onSuccess={handleSuccess}
+                    onError={handleError}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="px-3 py-2 font-bold text-sm bg-white text-color-1 rounded-md w-full mt-[2rem] mb-[1rem] flex items-center justify-center text-nowrap gap-2 border border-gray-300 hover:bg-gray-100"
+                >
+                  <img src={fb} alt="facebook" className="w-4" />
+                  Facebook
+                </button>
+              </div>
+            </GoogleOAuthProvider>
+            <p className="font-normal text-md mt-[2rem]">
+              Belum Mempunyai Akun?
+              <Link to={"/register"}>
+                <span className="text-blue-500">Registrasi Sekarang</span>
+              </Link>
+            </p>
           </div>
         </div>
         <div

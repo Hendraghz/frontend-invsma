@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/Logo.png";
-import LogoWhite from "../../assets/images/logo2.png";
 import { navigation } from "../../routes";
 import { AuthContext } from "../../utils/context/AuthContext";
 const Navbar = () => {
@@ -41,7 +40,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed flex justify-between items-center top-0 left-0 w-full z-50 px-5 md:px-[5rem] py-3 ${
+      className={`fixed flex justify-between items-center top-0 left-0 w-full z-50 px-5 md:px-[5rem] ${
         !scrolled ? "border-b border-color-1" : "shadow-md"
       } ${menuOpen ? "bg-white" : "md:bg-white"} bg-white md:bg-transparent`}
       style={
@@ -51,10 +50,10 @@ const Navbar = () => {
       <div className="flex items-center">
         <Link to={"/"} className="block py-1">
           <img
-            src={isLayananPage || scrolled || menuOpen ? LogoWhite : Logo}
+            src={isLayananPage || scrolled || menuOpen ? Logo : Logo}
             alt="logo-invsma"
-            height={isLayananPage || scrolled || menuOpen ? 20 : 40}
-            width={isLayananPage || scrolled || menuOpen ? 55 : 60}
+            height={isLayananPage || scrolled || menuOpen ? 20 : 20}
+            width={isLayananPage || scrolled || menuOpen ? 55 : 55}
           />
         </Link>
       </div>

@@ -2,7 +2,7 @@
 import { createContext, useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import  { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { login as loginApi, register as registerApi } from "../../api/auth";
 import { ApiUrl } from "../../api/baseUrl";
 
@@ -36,7 +36,24 @@ export const AuthProvider = ({ children }) => {
       "authTokens",
       JSON.stringify({ accessToken, refreshToken })
     );
-    return decoded; 
+    return decoded;
+  };
+
+  const loginWithGoogle = (token) => {
+    try {
+      // Decode the Google token
+      const decoded = jwtDecode(token);
+      // Set user and tokens in state
+      setAuthTokens({ accessToken: token, refreshToken: null }); // Assume no refreshToken here
+      setUser(decoded);
+      // Save token to local storage
+      localStorage.setItem(
+        "authTokens",
+        JSON.stringify({ accessToken: token, refreshToken: null })
+      );
+    } catch (error) {
+      console.error("Error decoding Google token:", error);
+    }
   };
 
   const register = async (formData) => {
@@ -114,7 +131,9 @@ export const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider
+      value={{ user, login, register, loginWithGoogle, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

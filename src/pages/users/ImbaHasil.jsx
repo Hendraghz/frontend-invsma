@@ -1,6 +1,42 @@
+import { Link } from "react-router-dom";
+import PieChartComponent from "../components/PieChartImba";
 import Sidebar from "../layout/Sidebar";
 
 const ImbaHasil = () => {
+  const data = [
+    {
+      id: 1,
+      namaBisnis: "PT INVSMA",
+      imbaHasil: "Rp. 2200",
+      tipe: "Obligasi",
+      tanggalPengembalian: "25 April 2025",
+      status: "Success",
+    },
+    {
+      id: 2,
+      namaBisnis: "PT GROWTECH",
+      imbaHasil: "Rp. 3500",
+      tipe: "Saham",
+      tanggalPengembalian: "12 Mei 2025",
+      status: "Success",
+    },
+    {
+      id: 3,
+      namaBisnis: "CV TEKNO",
+      imbaHasil: "Rp. 1800",
+      tipe: "Reksa Dana",
+      tanggalPengembalian: "8 Juni 2025",
+      status: "Pending",
+    },
+    {
+      id: 4,
+      namaBisnis: "PT FINCORP",
+      imbaHasil: "Rp. 2750",
+      tipe: "Deposito",
+      tanggalPengembalian: "30 Juli 2025",
+      status: "Success",
+    },
+  ];
   return (
     <div className="flex w-screen">
       <Sidebar />
@@ -13,15 +49,18 @@ const ImbaHasil = () => {
           </div>
           <div className="filter mt-[1rem]">
             <div className="title">
-              <h1 className="font-bold text-sm text-color-1">
-               Imba Hasil
-              </h1>
+              <h1 className="font-bold text-sm text-color-1">Imba Hasil</h1>
               <p className="font-normal text-xs ">
-                Anda Dapat melihat secara detail mengenai pembagian Hasil Anda dalam investasi
+                Anda Dapat melihat secara detail mengenai pembagian Hasil Anda
+                dalam investasi
               </p>
             </div>
           </div>
-
+          <div className="w-full flex justify-center">
+            <div className="shadow-xl px-3 py-3 w-[25rem] h-fit">
+              <PieChartComponent />
+            </div>
+          </div>
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-8">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50">
@@ -50,45 +89,38 @@ const ImbaHasil = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-white border-b">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >1
-                  </th>
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >PT INVSMA
-                  </th>
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >Rp. 2200
-                  </th>
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >Obligasi
-                  </th>
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >25 April 2025
-                  </th>
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >Success
-                  </th>
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  > <button className="px-3 py-1 bg-color-2 text-white rounded-md">
-                    Detail
-                  </button>
-                  </th>
-                </tr>
+                {data.map((item) => (
+                  <tr key={item.id} className="bg-white border-b">
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                    >
+                      {item.id}
+                    </th>
+                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                      {item.namaBisnis}
+                    </td>
+                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                      {item.imbaHasil}
+                    </td>
+                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                      {item.tipe}
+                    </td>
+                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                      {item.tanggalPengembalian}
+                    </td>
+                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                      {item.status}
+                    </td>
+                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                      <Link to={"/detail-imba-hasil"}>
+                        <button className="px-3 py-1 bg-color-2 text-white rounded-md">
+                          Detail
+                        </button>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
