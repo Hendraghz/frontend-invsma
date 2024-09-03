@@ -3,83 +3,70 @@ const SyariahPrinsip = () => {
     <div className="px-4 md:px-10">
       <div className="text-left">
         <p className="title font-bold text-2xl mt-[2rem] text-color-1 py-2">
-          Penerapan Lima Prinsip Dasar Aspek Syariah
+          Nilai-Nilai INVSMA (INVSMA Values)
         </p>
         <p className="title font-normal text-1xl  text-color-1 py-2">
           INVSMA mewujudkan invenstasi halal dan tidak melanggar syariat islam.
         </p>
       </div>
       <div className="flex justify-around gap-4 mt-[1rem] mb-[3rem]">
-        <div className=" border-r border-gray-400 pr-[2rem]">
+        <div className=" border-r border-gray-400 pr-[2rem] w-[22rem]">
           <div className="title">
-            <p className="text-lg font-bold text-color-1">
-              Kitabullah wa Sunnatu Rasulullah
-            </p>
+            <p className="text-lg font-bold text-color-1">Integrity</p>
           </div>
-          <div className="desc text-justify text-sm mt-[1rem]">
-            Dipupuk oleh kearifan ilahi yang dikemas dalam Al-Qur`&apos`an dan tradisi
-            mulia yang diturunkan oleh Nabi, pendekatan kami berkembang sebagai
-            bukti tak tergoyahkan akan prinsip-prinsip Islam yang mendalam dan
-            abadi.
+          <div className="desc text-left text-sm mt-[1rem]">
+            the quality of being honest and having strong moral principles. It
+            involves consistency in actions, values, methods, and principles,
+            and is often associated with trustworthiness and reliability.
           </div>
         </div>
-        <div className=" border-r border-gray-400 pr-[2rem]">
+        <div className=" border-r border-gray-400 pr-[2rem]  w-[22rem]">
           <div className="title">
-            <p className="text-lg font-bold text-color-1">Fatawa `&apos` Ulama</p>
+            <p className="text-lg font-bold text-color-1">Niche</p>
           </div>
           <div className="desc text-justify text-sm mt-[1rem]">
-            <p className="mt-[1rem] mb-[1rem] font-bold">
-              AAOIFI, OKI, Lajnah Daimah & DSN-MUI
-            </p>
             <p>
-              Kami mematuhi pendapat dan keputusan yang diinformasikan dari para
-              ulama dan lembaga yang dihormati, seperti AAOIFI, OKI, Lajnah
-              Daimah, dan DSN-MUI, untuk memastikan praktik keuangan kami
-              sejalan dengan persyaratan Syariah.
+              These are products or services designed to appeal to a specific
+              segment of the market. For example, a company might produce
+              organic, gluten-free snacks for health-conscious consumers. These
+              products cater to a niche market rather than the mass market.
             </p>
           </div>
         </div>
-        <div className=" border-r border-gray-400 pr-[2rem]">
+        <div className=" border-r border-gray-400 pr-[2rem]  w-[22rem]">
           <div className="title">
-            <p className="text-lg font-bold text-color-1">
-              Khuruj Min Ikhtilaf
-            </p>
+            <p className="text-lg font-bold text-color-1">Visionary</p>
           </div>
           <div className="desc text-justify text-sm mt-[1rem]">
-            <p className="mt-[1rem] mb-[1rem] font-bold">
-              (Dialihkan dari Dispute)
-            </p>
-            Komitmen kami terhadap persatuan dan keharmonisan mendorong kami
-            untuk menghindari perselisihan dan ketidaksepakatan, mendorong
-            lingkungan keuangan yang kohesif dan kooperatif.
+            Forward-Thinking, Resilient and Persistent, Strategic Thinker
           </div>
         </div>{" "}
-        <div className=" border-r border-gray-400 pr-[2rem]">
+        <div className=" border-r border-gray-400 pr-[2rem]  w-[22rem]">
           <div className="title">
-            <p className="text-lg font-bold text-color-1">Saddudz Dzari`&apos`ah</p>
+            <p className="text-lg font-bold text-color-1">Sustainability</p>
           </div>
           <div className="desc text-justify text-sm mt-[1rem]">
-            <p className="mt-[1rem] mb-[1rem] font-bold">
-              (Tutup Pintu Perbuatan Jahat)
-            </p>
-            Kami menekankan pentingnya menutup pintu untuk tindakan yang
-            bertentangan dengan prinsip-prinsip Islam, memastikan transaksi
-            keuangan yang etis dan bajik.
+            consider their long-term impacts on society, the economy, and the
+            environment.
           </div>
         </div>{" "}
-        <div className="pr-[2rem]">
+        <div className="border-r border-gray-400 pr-[2rem]  w-[22rem]">
           <div className="title">
-            <p className="text-lg font-bold text-color-1">
-              Maqashid Syar`&apos`iyyah
-            </p>
+            <p className="text-lg font-bold text-color-1">Muamalah</p>
+          </div>
+          <div className="desc text-left text-sm mt-[1rem]">
+            Governs financial and commercial dealings, ensuring they are
+            conducted in a manner that is fair, transparent, and compliant with
+            Islamic law.
+          </div>
+        </div>
+        <div className="pr-[2rem]  w-[22rem]">
+          <div className="title">
+            <p className="text-lg font-bold text-color-1">Amanah</p>
           </div>
           <div className="desc text-justify text-sm mt-[1rem]">
-            <p className="mt-[1rem] mb-[1rem] font-bold">
-              (Tujuan Utama Syariah)
-            </p>
-            Pendekatan keuangan kami didasarkan pada tujuan dasar hukum Syariah,
-            yang berupaya menegakkan keadilan, kesetaraan, dan kesejahteraan
-            masyarakat, sebagai tujuan inti dari kegiatan keuangan kami.
+            Our key ethical concept that emphasizes integrity, honesty, and the
+            importance of fulfilling obligations.
           </div>
         </div>
       </div>
