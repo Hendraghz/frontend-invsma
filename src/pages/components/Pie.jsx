@@ -1,18 +1,18 @@
 import Chart from "react-apexcharts";
 
 const ChartComponent = () => {
-    const dataInvestasi = [35, 45, 20]; 
+    const dataInvestasi = [40, 30, 30]; // Dummy data: 40% obligasi, 30% saham, 30% sukuk
 
     const chartOptions = {
         chart: {
             type: "pie",
             toolbar: {
-                show: false,
+                show: false, // hide the toolbar icons
             },
         },
         series: dataInvestasi,
         labels: ["Obligasi", "Saham", "Sukuk"],
-        colors: ["#09412c", "#c4f363", "#ffa500"],
+        colors: ["#09412c", "#c4f363", "#ffa500"], // Third color is orange
         title: {
             text: "Distribusi Investasi",
             align: "center",

@@ -1,13 +1,13 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../utils/context/AuthContext.jsx";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
 const DropdownProfile = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { logout } = useContext(AuthContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const token = localStorage.getItem("authTokens");
   const decoded = jwtDecode(token);
@@ -18,8 +18,8 @@ const DropdownProfile = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/");
-    setDropdownOpen(false); // Menutup dropdown setelah logout
+    window.location.href = "https://invsma.co.id/";
+    setDropdownOpen(false);
   };
 
   return (
