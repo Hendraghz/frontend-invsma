@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/images/Logo.png";
+// import Logo from "../../assets/images/Logo.png";
+import LogoWhite from "../../assets/images/logo2.png";
 import { navigation } from "../../routes";
 import { AuthContext } from "../../utils/context/AuthContext";
 const Navbar = () => {
@@ -50,7 +51,7 @@ const Navbar = () => {
       <div className="flex items-center">
         <Link to={"/"} className="block py-1">
           <img
-            src={isLayananPage || scrolled || menuOpen ? Logo : Logo}
+            src={isLayananPage || scrolled || menuOpen ? LogoWhite : LogoWhite}
             alt="logo-invsma"
             height={isLayananPage || scrolled || menuOpen ? 20 : 20}
             width={isLayananPage || scrolled || menuOpen ? 55 : 55}

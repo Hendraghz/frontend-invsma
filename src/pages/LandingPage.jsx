@@ -51,7 +51,8 @@ const LandingPage = () => {
       >
         <div className="title text-left">
           <p className="font-bold text-white text-3xl md:text-6xl leading-tight">
-            Unlock your financial potential with{" "}
+            Grow your business financial requirement with cutting-edge
+            technology
             <br className="hidden md:block" />{" "}
             <span className="text-color-2">comprehensive planning</span>
           </p>

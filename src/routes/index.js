@@ -55,11 +55,11 @@ export const navigationUser = [
     title: "Ajukan Pendanaan",
     url: "/ajukan-pendanaan",
   },
-  {
-    id: "5",
-    title: "Home",
-    url: "/",
-  },
+  // {
+  //   id: "5",
+  //   title: "Home",
+  //   url: "/",
+  // },
 ];
 
 export const sidebar = [

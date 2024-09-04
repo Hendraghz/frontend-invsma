@@ -11,68 +11,54 @@ import Profit2 from "../assets/images/Profit2.jpg";
 
 export const layanan = [
   {
-    id: 0,
-    title: "Pengaturan Pembiayaan Jangka Pendek & Jangka Panjang",
-    des1: {
-      title: "Manajemen Keuangan Holistik",
-      desk: "Memberikan pendekatan holistik terhadap manajemen keuangan yang mencakup stabilitas keuangan jangka pendek dan pembangunan kekayaan jangka panjang, semuanya dalam satu rencana komprehensif.",
-    },
-    des2: {
-      title: "Peta Jalan Keuangan yang Disesuaikan",
-      desk: "Merancang peta jalan keuangan individual, memadukan strategi jangka pendek dan jangka panjang dengan mulus untuk memastikan kesuksesan finansial Anda baik saat ini maupun di masa depan.",
-    },
-    des3: {
-      title: "Menyeimbangkan Kebutuhan Mendesak dengan Tujuan Masa Depan",
-      desk: "Mencapai keseimbangan yang halus antara menangani kebutuhan keuangan langsung dan perencanaan strategis untuk tujuan masa depan melalui pengaturan keuangan yang bijaksana.",
-    },
-  },
-  {
     id: 1,
     title: "Pembiayaan Murabahah / Trading",
+    subtitle: "Murabahah Financing / Trading",
     des1: {
-      title: "Solusi Pembiayaan yang Sesuai dengan Syariah",
-      desk: "Menawarkan layanan pembiayaan dan perdagangan Murabahah yang sesuai dengan prinsip-prinsip Islam, memastikan pengaturan keuangan yang etis dan bebas bunga",
+      title: "Sharia-Compliant Financing Solutions",
+      desk: "Offering Murabahah financing and trading services that adhere to Islamic principles, ensuring ethical and interest-free financial arrangements.",
     },
     des2: {
-      title: "Praktik Perdagangan yang Transparan",
-      desk: "Memberikan kejelasan dan transparansi dalam bertransaksi sekaligus memfasilitasi pembiayaan Murabahah, mengedepankan kepercayaan dan integritas dalam transaksi keuangan Anda.",
+      title: "Transparent Trading Practices",
+      desk: "Providing clarity and transparency in trading while facilitating Murabahah financing, promoting trust and integrity in your financial transactions.",
     },
     des3: {
-      title: "Pembiayaan dan Perdagangan yang Disesuaikan",
-      desk: "Menyesuaikan pembiayaan dan trading Murabahah dengan kebutuhan unik Anda, baik untuk kebutuhan finansial jangka pendek maupun investasi jangka panjang",
-    },
-  },
-  {
-    id: 2,
-    title: "Solusi Kemitraan Islami",
-    des1: {
-      title:
-        "Menawarkan layanan pembiayaan dan kemitraan Musyarakah sesuai dengan prinsip keuangan Syariah, memastikan pengaturan keuangan yang etis dan kolaboratif",
-      desk: "Memberikan pendekatan holistik terhadap manajemen keuangan yang mencakup stabilitas keuangan jangka pendek dan pembangunan kekayaan jangka panjang, semuanya dalam satu rencana komprehensif.",
-    },
-    des2: {
-      title: "Usaha Bisnis Kolaboratif",
-      desk: "Memfasilitasi pengaturan kemitraan yang transparan dan merata, di mana pembiayaan Musyarakah memberdayakan usaha bisnis bersama dan mendorong kesuksesan bersama",
-    },
-    des3: {
-      title: "Kemitraan Pembiayaan yang Disesuaikan",
-      desk: "Menyesuaikan struktur pembiayaan dan kemitraan Musyarakah untuk memenuhi kebutuhan keuangan unik Anda, baik untuk pemasukan modal segera atau pertumbuhan bisnis kolaboratif jangka panjang.",
+      title: "Tailored Financing and Trading",
+      desk: "Adapting Murabahah financing and trading to your unique needs, whether for short-term financial needs or long-term investments.",
     },
   },
   {
     id: 3,
-    title: "Ekuitas",
+    title: "Musyarakah Financing / Partnership / JC",
+    subtitle: "Musyarakah Financing / Partnership / JV",
     des1: {
-      title: "Peluang Investasi Ekuitas",
-      desk: "Menjelajahi beragam jalur investasi ekuitas, menawarkan potensi pertumbuhan dan pengembalian finansial di dunia saham dan aset yang dinamis.",
+      title: "Islamic Partnership Solutions",
+      desk: "Offering Musyarakah financing and partnership services in accordance with Islamic finance principles, ensuring ethical and collaborative financial arrangements.",
     },
     des2: {
-      title: "Transparansi dalam Transaksi Ekuitas",
-      desk: "Menciptakan lingkungan perdagangan ekuitas yang transparan dan dapat dipercaya, di mana saham dipertukarkan dengan integritas, memastikan pasar yang aman dan adil.",
+      title: "Collaborative Business Ventures",
+      desk: "Facilitating transparent and equitable partnership arrangements, where Musyarakah financing empowers shared business ventures and fosters mutual success.",
     },
     des3: {
-      title: "Strategi Ekuitas yang Disesuaikan",
-      desk: "Menyesuaikan strategi investasi ekuitas agar selaras dengan tujuan keuangan spesifik Anda, baik Anda berfokus pada keuntungan jangka pendek atau akumulasi kekayaan jangka panjang.",
+      title: "Customized Financing Partnerships",
+      desk: "Tailoring Musyarakah financing and partnership structures to meet your unique financial needs, whether for immediate capital infusion or long-term collaborative business growth.",
+    },
+  },
+  {
+    id: 4,
+    title: "Equity",
+    subtitle: "Equity",
+    des1: {
+      title: "Equity Investment Opportunities",
+      desk: "Exploring diverse equity investment avenues, offering potential for growth and financial returns in the dynamic world of stocks and assets.",
+    },
+    des2: {
+      title: "Transparency in Equity Transactions",
+      desk: "Creating a transparent and trustworthy equity trading environment, where shares are exchanged with integrity, ensuring a secure and equitable marketplace.",
+    },
+    des3: {
+      title: "Customized Equity Strategies",
+      desk: "Tailoring equity investment strategies to align with your specific financial goals, whether you're focused on short-term gains or long-term wealth accumulation.",
     },
   },
 ];
