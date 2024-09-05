@@ -1,14 +1,12 @@
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
-import Pro4 from "../assets/images/Pro4.jpg";
+import Profit from "../assets/images/Profit.jpg";
 import Galeri1 from "../assets/images/Asset2.webp";
 import Galeri2 from "../assets/images/Asset4.webp";
 import Galeri3 from "../assets/images/Asset5.webp";
 import Galeri4 from "../assets/images/Asset6.webp";
-import Galeri5 from "../assets/images/dash2.jpg";
-import Galeri6 from "../assets/images/dash3.jpg";
 
-const SahamSyariah = () => {
+const PasarSekunder = () => {
 
     return (
         <div>
@@ -33,7 +31,7 @@ const SahamSyariah = () => {
                         {/* Image Section */}
                         <div className="lg:w-1/3">
                             <img
-                                src={Pro4}
+                                src={Profit}
                                 alt="Team member"
                                 className="rounded-lg object-cover object-center w-full"
                             />
@@ -49,7 +47,7 @@ const SahamSyariah = () => {
                             <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
                         </svg>
                         <p className="leading-relaxed text-lg">
-                            Saham syariah adalah saham yang diterbitkan oleh perusahaan (Penerbit) dan sesuai dengan prinsip-prinsip syariah Islam. Dalam konteks ini, syariah berarti bahwa investasi dalam saham tersebut tidak melibatkan unsur-unsur yang dilarang dalam Islam, seperti riba (bunga), gharar (ketidakpastian), dan haram (aktivitas atau barang yang dilarang).
+                            Pasar sekunder adalah pasar keuangan di mana sekuritas yang sebelumnya diterbitkan, seperti saham, obligasi, atau instrumen keuangan lainnya, diperdagangkan di antara investor. Pada pasar ini, pemilik sekuritas menjualnya kepada investor lain, bukan kepada perusahaan atau entitas yang menerbitkan sekuritas tersebut. Dengan kata lain, pasar sekunder adalah tempat terjadinya perdagangan sekuritas setelah penerbitan awalnya di pasar primer.
                         </p>
                         <span className="inline-block h-1 w-10 rounded bg-green-500 mt-8 mb-6"></span>
                         <h2 className="text-gray-900 font-bold title-font tracking-wider text-md">INVSMA</h2>
@@ -59,51 +57,48 @@ const SahamSyariah = () => {
 
             <div className="bg-white py-6 sm:py-8 lg:py-12">
                 <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-                    <div className="mb-10 md:mb-16">
-                        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">Galeri Bisnis</h2>
+                    <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+                        <div className="flex items-center gap-12">
+                            <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl">Gallery</h2>
 
-                        <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
-                            Galeri bisnis kami menampilkan berbagai proyek dan usaha yang mencerminkan komitmen kami terhadap keunggulan dan inovasi. Dari layanan keuangan mutakhir hingga solusi bisnis strategis, setiap gambar menceritakan kisah dedikasi kami dalam membantu klien mencapai pertumbuhan dan kesuksesan yang berkelanjutan. Jelajahi portofolio kami dan lihat bagaimana kami mewujudkan ide menjadi nyata.
-                        </p>
+                            <p className="hidden max-w-screen-sm text-gray-500 md:block">
+                                Galeri bisnis kami menampilkan berbagai proyek dan usaha yang mencerminkan komitmen kami terhadap keunggulan dan inovasi. Dari layanan keuangan mutakhir hingga solusi bisnis strategis, setiap gambar menceritakan kisah dedikasi kami dalam membantu klien mencapai pertumbuhan dan kesuksesan yang berkelanjutan. Jelajahi portofolio kami dan lihat bagaimana kami mewujudkan ide menjadi nyata.
+                            </p>
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-                        <a href="#" className="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96">
+                        <a href="#" className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
                             <img src={Galeri1} loading="lazy" alt="Gallery 1" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
                             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
                         </a>
 
-                        <a href="#" className="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96">
+                        <a href="#" className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
                             <img src={Galeri2} loading="lazy" alt="Gallery 2" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
                             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
                         </a>
 
-                        <a href="#" className="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96">
+                        <a href="#" className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
                             <img src={Galeri3} loading="lazy" alt="Gallery 3" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
                             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
                         </a>
 
-                        <a href="#" className="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96">
+                        <a href="#" className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
                             <img src={Galeri4} loading="lazy" alt="Gallery 4" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
-                        </a>
 
-                        <a href="#" className="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96">
-                            <img src={Galeri5} loading="lazy" alt="Gallery 5" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
-                        </a>
-
-                        <a href="#" className="group relative flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96">
-                            <img src={Galeri6} loading="lazy" alt="Gallery 6" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
                             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
                         </a>
                     </div>
                 </div>
             </div>
 
+
             <Footer />
         </div>
     );
 };
 
-export default SahamSyariah;
+export default PasarSekunder;
