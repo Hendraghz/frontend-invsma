@@ -7,6 +7,7 @@ export default {
         color: {
           1: "#09412c",
           2: "#c4f363",
+          3: "#e4edf3",
         },
         stroke: {
           1: "#26242C",

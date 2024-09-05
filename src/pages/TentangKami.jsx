@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navbar from './layout/Navbar';
 import Footer from './layout/Footer';
+import TableImage from "../assets/images/assets-table.webp";
 
 const TentangKami = () => {
   const [activeTab, setActiveTab] = useState('Tentang Kami');
@@ -9,8 +10,8 @@ const TentangKami = () => {
     <div>
       <Navbar />
 
-      <div className="bg-gray-50 min-h-screen flex flex-col items-center">
-        <div className='mt-32 mb-5'>
+      <div className="bg-white min-h-screen flex flex-col items-center">
+        <div className='mt-20 mb-5'>
           <h1 className='font-bold text-2xl'>Tentang Kami</h1>
         </div>
         <div className="bg-green-800 py-2 px-3 rounded-full flex justify-center max-w-max">
@@ -47,10 +48,17 @@ const TentangKami = () => {
             {activeTab === 'Tentang Kami' && (
               <div className="h-full flex flex-col justify-center">
                 <div className="bg-white py-6 sm:py-8 lg:py-12">
-                  <div className="mx-auto max-w-screen-xl px-4 md:px-8">
+                  <div className='px-32 border-b-2 pb-5'>
+                    <h1 className='text-2xl font-bold'>INVSMA Fintech stands as a pioneer of innovation, leading the way in the global development and delivery of cutting-edge, Sharia-compliant financial solutions. We are dedicated to addressing the diverse financial needs of all communities, extending our unwavering commitment to financial inclusivity to a wider audience in accordance with Sharia principles.<br></br> <br></br>
+
+                      As a renowned global consulting firm, our mission aligns with collaborating with business and societal leaders in surmounting their most critical challenges and seizing their greatest opportunities, all while upholding Islamic values. Our achievements are deeply rooted in nurturing profound collaboration and fostering a global community of diverse individuals who are passionately committed to making positive contributions to both the world and each other on a daily basis, all within the framework of Sharia compliance.</h1>
+                  </div>
+
+                  {/* Img with text */}
+                  <div className="mx-auto max-w-screen-xl px-4 md:px-8 mt-20 border-b-2 pb-5">
                     <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
                       <div>
-                        <div className="h-64 mt-4 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-auto">
+                        <div className="h-64 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-auto">
                           <img
                             src="https://images.unsplash.com/photo-1546979859-b7d45d499dd6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODB8fG1hbiUyMHdvcmt8ZW58MHx8MHx8fDA%3D"
                             loading="lazy"
@@ -65,24 +73,166 @@ const TentangKami = () => {
 
                         <h1 className="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-3xl md:mb-6 md:text-left">TENTANG INVSMA</h1>
 
-                        <p className="mb-6 text-gray-700 sm:text-lg md:mb-8">
+                        <p className="mb-6 text-gray-700 sm:text-md md:mb-8">
                           INVSMA is a Fintech securities offering (Securities Crowdfunding) service provider that provides a platform for businesses/SMEs to sell securities directly to investors. INVSMA presents as a platform that brings together businesses and investors.
                           <br />
                           <br />
-                          This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is{' '} or otherwise generated. It may be used to display a sample of fonts or generate text for testing. Filler text is dummy text which has no meaning however looks very similar to real text.
+                          At Invsma, our journey began with a unique approach, reflecting our commitment to both innovation and Sharia compliance. Instead of adhering to a demanding, all-or-nothing career path, we prioritized balance and well-being. Invsma provides an opportunity to find fulfillment in both your professional and personal life, while valuing family and engaging in impactful projects alongside companies within your community.
                         </p>
 
-                        <h2 className="mb-2 text-center text-xl font-semibold text-gray-800 sm:text-2xl md:mb-4 md:text-left">Latar Belakang</h2>
+                        <h2 className="mb-2 text-center text-xl font-semibold text-gray-800 sm:text-2xl md:mb-4 md:text-left">Core Principle</h2>
 
-                        <p className="mb-6 text-gray-700 sm:text-lg md:mb-8">
-                          This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated. It may be used to display a sample of fonts or generate text for testing. Filler text is dummy text which has no meaning however looks very similar to real text.
+                        <p className="mb-6 text-gray-700 sm:text-md md:mb-8">
+                          Our core principle, at Invsma, is to invest in people, communities, and the success of our clients, all while adhering to Sharia principles. We’ve consistently been recognized as a top workplace, celebrated for our commitment to creating an environment where individuals not only excel but also thrive, all in alignment with our core values.
                         </p>
                       </div>
                     </div>
                   </div>
-                </div>
 
+                  {/* Purpose */}
+                  <section className="text-gray-600 body-font pb-10">
+                    <div className="container px-5 py-10 mx-auto">
+                      <h1 className="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">
+                        Our Purpose
+                      </h1>
+                      <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+                        <div className="p-4 md:w-1/3 flex">
+                          <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4 flex-shrink-0">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              className="w-6 h-6"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                          </div>
+                          <div className="flex-grow pl-6">
+                            <h2 className="text-gray-900 text-lg title-font font-medium mb-2">Insight to light</h2>
+                            <p className="leading-relaxed text-base">
+                              We challenge traditional thinking and ways of operating, bringing new perspectives to solve the toughest problems.
+                            </p>
+                          </div>
+                        </div>
+                        <div className="p-4 md:w-1/3 flex">
+                          <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4 flex-shrink-0">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              className="w-6 h-6"
+                              viewBox="0 0 24 24"
+                            >
+                              <circle cx="6" cy="6" r="3"></circle>
+                              <circle cx="6" cy="18" r="3"></circle>
+                              <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+                            </svg>
+                          </div>
+                          <div className="flex-grow pl-6">
+                            <h2 className="text-gray-900 text-lg title-font font-medium mb-2">Drive inspired impact</h2>
+                            <p className="leading-relaxed text-base">
+                              We look beyond the next deadline to the next decade, collaborating closely with our clients to enable and energize their organizations.
+                            </p>
+                          </div>
+                        </div>
+                        <div className="p-4 md:w-1/3 flex">
+                          <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4 flex-shrink-0">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              className="w-6 h-6"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                              <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                          </div>
+                          <div className="flex-grow pl-6">
+                            <h2 className="text-gray-900 text-lg title-font font-medium mb-2">Conquer complexity</h2>
+                            <p className="leading-relaxed text-base">
+                              We uncover unique sources of competitive advantage and hidden truths in dynamic, complex systems.
+                            </p>
+                          </div>
+                        </div>
+                        <div className="p-4 md:w-1/3 flex">
+                          <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4 flex-shrink-0">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              className="w-6 h-6"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M20 12H4"></path>
+                              <path d="M12 20V4M20 12l-8-8M4 12l8 8"></path>
+                            </svg>
+
+                          </div>
+                          <div className="flex-grow pl-6">
+                            <h2 className="text-gray-900 text-lg title-font font-medium mb-2">Lead with integrity</h2>
+                            <p className="leading-relaxed text-base">
+                              We confront the hard issues, stay true to our values, and communicate our views candidly and directly.
+                            </p>
+                          </div>
+                        </div>
+                        <div className="p-4 md:w-1/3 flex">
+                          <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4 flex-shrink-0">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              className="w-6 h-6"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M12 4v16M4 12h16"></path>
+                              <path d="M6 6l12 12M18 6l-12 12"></path>
+                            </svg>
+
+                          </div>
+                          <div className="flex-grow pl-6">
+                            <h2 className="text-gray-900 text-lg title-font font-medium mb-2">Grow by growing others</h2>
+                            <p className="leading-relaxed text-base">
+                              We empower our clients, colleagues, and the broader community to build success and reach their full potential.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  {/* Image table */}
+                  <div className="w-full h-auto flex justify-center">
+                    <img
+                      src={TableImage}
+                      alt="Table"
+                      className="w-full max-w-screen-lg h-auto rounded-lg object-contain"
+                    />
+                  </div>
+
+                  <div className="flex flex-col py-12 items-center text-center px-4 md:px-8 lg:px-16">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                      How we work
+                    </h1>
+                    <h2 className="text-md md:text-lg lg:text-xl font-light">
+                      Transforming organizations sustainably. Unlocking performance excellence. <br />
+                      Nurturing thriving workforces for generations. Partner with us for success.
+                    </h2>
+                  </div>
+                </div>
               </div>
+
             )}
 
             {activeTab === 'Visi Kami' && (
