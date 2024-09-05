@@ -9,6 +9,7 @@ import StatusVerifikasi from "./pages/users/verifikasi/StatusVerifikasi";
 import DetailProject from "./pages/DetailProject";
 import Layanan from "./pages/Layanan";
 import Sukuk from "./pages/Sukuk";
+import SahamSyariah from "./pages/SahamSyariah";
 import TentangKami from "./pages/TentangKami";
 import Informasi from "./pages/Informasi";
 import Dashboard from "./pages/users/Dashboard";
@@ -48,6 +49,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/layanan" element={<Layanan />} />
             <Route path="/sukuk" element={<Sukuk />} />
+            <Route path="/saham-syariah" element={<SahamSyariah />} />
             <Route path="/tentang-kami" element={<TentangKami />} />
             <Route path="/informasi" element={<Informasi />} />
             <Route path="/register" element={<Registrasi />} />
