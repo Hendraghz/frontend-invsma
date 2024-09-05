@@ -8,8 +8,25 @@ export const navigation = [
   },
   {
     id: "1",
-    title: "Layanan Kami",
-    url: "/layanan",
+    title: "Layanan",
+    url: "#",
+    submenu: [
+      {
+        id: "1-1",
+        title: "Sukuk",
+        url: "/sukuk",
+      },
+      {
+        id: "1-2",
+        title: "Saham Syariah",
+        url: "/saham-syariah",
+      },
+      {
+        id: "1-3",
+        title: "Pasar Sekunder",
+        url: "/pasar-sekunder",
+      },
+    ],
   },
   {
     id: "2",
@@ -22,12 +39,12 @@ export const navigation = [
     url: "/informasi",
   },
   {
-    id: "4",
-    title: "New account",
-    url: "/register",
-    onlyMobile: true,
+    id: "5",
+    title: "0812-8619-7142",
+    url: "https://wa.me/6281286197142",
   },
 ];
+
 
 export const navigationUser = [
   {

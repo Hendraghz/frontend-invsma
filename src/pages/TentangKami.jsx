@@ -19,21 +19,21 @@ const TentangKami = () => {
 
           <div className="flex space-x-4">
             <button
-              className={`py-2 px-6 rounded-full font-semibold transition ${activeTab === 'Tentang Kami' ? 'bg-white text-green-800' : 'bg-green-800 text-white'
+              className={`py-2 px-3 rounded-full font-semibold sm:text-sm md:text-md  md:px-6 transition ${activeTab === 'Tentang Kami' ? 'bg-white text-green-800' : 'bg-green-800 text-white'
                 }`}
               onClick={() => setActiveTab('Tentang Kami')}
             >
               Tentang Kami
             </button>
             <button
-              className={`py-2 px-6 rounded-full font-semibold transition ${activeTab === 'Visi Kami' ? 'bg-white text-green-800' : 'bg-green-800 text-white'
+              className={`py-2 px-3 rounded-full font-semibold sm:text-sm md:text-md  md:px-6 transition ${activeTab === 'Visi Kami' ? 'bg-white text-green-800' : 'bg-green-800 text-white'
                 }`}
               onClick={() => setActiveTab('Visi Kami')}
             >
               Visi Kami
             </button>
             <button
-              className={`py-2 px-6 rounded-full font-semibold transition ${activeTab === 'Tim Kami' ? 'bg-white text-green-800' : 'bg-green-800 text-white'
+              className={`py-2 px-3 rounded-full font-semibold sm:text-sm md:text-md  md:px-6 transition ${activeTab === 'Tim Kami' ? 'bg-white text-green-800' : 'bg-green-800 text-white'
                 }`}
               onClick={() => setActiveTab('Tim Kami')}
             >
@@ -48,10 +48,12 @@ const TentangKami = () => {
             {activeTab === 'Tentang Kami' && (
               <div className="h-full flex flex-col justify-center">
                 <div className="bg-white py-6 sm:py-8 lg:py-12">
-                  <div className='px-32 border-b-2 pb-5'>
-                    <h1 className='text-2xl font-bold'>INVSMA Fintech stands as a pioneer of innovation, leading the way in the global development and delivery of cutting-edge, Sharia-compliant financial solutions. We are dedicated to addressing the diverse financial needs of all communities, extending our unwavering commitment to financial inclusivity to a wider audience in accordance with Sharia principles.<br></br> <br></br>
+                  <div className='px-4 sm:px-8 md:px-16 lg:px-32 border-b-2 pb-5'>
+                    <h1 className='text-base sm:text-lg md:text-xl lg:text-2xl font-bold'>
+                      INVSMA Fintech stands as a pioneer of innovation, leading the way in the global development and delivery of cutting-edge, Sharia-compliant financial solutions. We are dedicated to addressing the diverse financial needs of all communities, extending our unwavering commitment to financial inclusivity to a wider audience in accordance with Sharia principles.<br /><br />
 
-                      As a renowned global consulting firm, our mission aligns with collaborating with business and societal leaders in surmounting their most critical challenges and seizing their greatest opportunities, all while upholding Islamic values. Our achievements are deeply rooted in nurturing profound collaboration and fostering a global community of diverse individuals who are passionately committed to making positive contributions to both the world and each other on a daily basis, all within the framework of Sharia compliance.</h1>
+                      As a renowned global consulting firm, our mission aligns with collaborating with business and societal leaders in surmounting their most critical challenges and seizing their greatest opportunities, all while upholding Islamic values. Our achievements are deeply rooted in nurturing profound collaboration and fostering a global community of diverse individuals who are passionately committed to making positive contributions to both the world and each other on a daily basis, all within the framework of Sharia compliance.
+                    </h1>
                   </div>
 
                   {/* Img with text */}
