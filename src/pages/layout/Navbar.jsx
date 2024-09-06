@@ -54,15 +54,10 @@ const Navbar = () => {
 
   const isLayananPage = location.pathname === "/test";
 
-  const navbarStyle = {
-    backgroundColor: "white",
-  };
-
   return (
     <div
-      className={`relative flex items-center top-0 left-0 w-full z-50 px-5 md:px-[2rem] ${!scrolled ? "" : "shadow-md"
-        } ${menuOpen ? "bg-white" : "md:bg-white"} bg-white md:bg-white`}
-      style={navbarStyle}
+      className={`relative flex items-center justify-between top-0 left-0 w-full z-50 px-5 md:px-[2rem] ${scrolled ? "shadow-md" : ""} ${menuOpen ? "bg-white" : "md:bg-transparent"}`}
+      style={{ backgroundColor: "white" }}
     >
       <div className="flex items-center">
         <Link to={"/"} className="block py-1">
@@ -74,67 +69,69 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="flex items-center ml-auto md:hidden z-50">
+      <div className="flex items-center md:hidden z-50">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="text-black focus:outline-none"
         >
-          <div className="flex flex-col items-center justify-center mt-20 md:mt-0 md:flex-row">
-            {navigation.map((item) => (
-              <Link
-                to={item.url}
-                key={item.id}
-                className={`relative block text-2xl group transition-colors ${
-                  isLayananPage || scrolled || menuOpen
-                    ? "text-white"
-                    : "text-white"
-                } ${
-                  item.onlyMobile ? "lg:hidden" : ""
-                } px-3 py-3 pb-2 md:py-4 lg:mb lg:-mr-0.25 lg:text-[1rem] lg:font-semibold lg:leading-5 xl:px-8`}
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.title}
-                <span
-                  className={`block ${
-                    location.pathname === item.url
-                      ? "h-0.5 bg-white mt-1 max-w-full"
-                      : "max-w-0"
-                  } group-hover:max-w-full transition-all duration-500 h-0.5 bg-color-1 mt-1`}
-                ></span>
-              </Link>
-            ))}
-          </div>
-        </nav>
+          {menuOpen ? (
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          ) : (
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          )}
+        </button>
       </div>
-
 
       {/* Navbar Links and Menu */}
       <nav
-        className={`fixed top-0 left-0 h-full w-full bg-white transform ${menuOpen ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 ease-in-out md:static md:flex md:items-center md:justify-end md:bg-transparent md:transform-none z-40`}
+        className={`fixed top-0 left-0 w-full bg-white transform ${menuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 ease-in-out md:static md:flex md:items-center md:justify-end md:bg-transparent md:transform-none z-40`}
       >
-        <div className="flex flex-col md:flex-row md:ml-auto items-center justify-center mt-20 md:mt-0">
+        <div className={`flex flex-col md:flex-row md:ml-auto items-center justify-center mt-20 md:mt-0`}>
           {navigation.map((item) => (
-            <div key={item.id} className="relative w-full md:w-auto" ref={item.title === "Layanan" ? submenuRef : null}>
+            <div
+              key={item.id}
+              className="relative w-full md:w-auto"
+              ref={item.title === "Layanan" ? submenuRef : null}
+            >
               <Link
                 to={item.url}
-                className={`block text-lg font-bold md:text-sm group transition-colors ${isLayananPage || scrolled || menuOpen
-                  ? "text-gray-900"
-                  : "text-gray-900"
-                  } px-6 py-3 md:py-4`}
+                className={`block text-lg font-bold md:text-sm group transition-colors ${isLayananPage || scrolled || menuOpen ? "text-gray-900" : "text-gray-900"} px-6 py-3 md:py-4`}
                 onClick={item.title === "Layanan" ? toggleSubmenu : null}
               >
                 {item.title}
                 <span
-                  className={`block ${location.pathname === item.url
-                    ? "h-0.5 bg-black mt-1 max-w-full"
-                    : "max-w-0"
-                    } group-hover:max-w-full transition-all duration-500 h-0.5 bg-color-1 mt-1`}
+                  className={`block ${location.pathname === item.url ? "h-0.5 bg-black mt-1 max-w-full" : "max-w-0"} group-hover:max-w-full transition-all duration-500 h-0.5 bg-color-1 mt-1`}
                 ></span>
               </Link>
 
               {item.title === "Layanan" && submenuOpen && (
-                <div className="flex flex-col">
+                <div className="flex flex-col absolute top-full left-0 w-full bg-white shadow-md mt-2 z-50">
                   {item.submenu && item.submenu.map((submenuItem) => (
                     <Link
                       key={submenuItem.id}
