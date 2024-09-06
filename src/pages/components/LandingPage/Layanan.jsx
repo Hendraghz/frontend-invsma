@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { layanan } from "../../data";
 
 const Layanan = () => {
   return (
-    <div className="px-4 md:px-10">
+    <div className="px-4 md:px-10 flex justify-center ">
       {" "}
-      <div>
+      <div className="md:w-full 2xl:w-4/5">
         <p className="text-color-1 font-bold text-2xl">LAYANAN INVSMA</p>
         <p className="text-black font-normal text-lg mb-[2rem]">
           Berikut beberapa layanan unggulan INVSMA untuk memenuhi kebutuhan

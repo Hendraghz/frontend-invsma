@@ -79,39 +79,34 @@ const Navbar = () => {
           onClick={() => setMenuOpen(!menuOpen)}
           className="text-black focus:outline-none"
         >
-          {menuOpen ? (
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
-          ) : (
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          )}
-        </button>
+          <div className="flex flex-col items-center justify-center mt-20 md:mt-0 md:flex-row">
+            {navigation.map((item) => (
+              <Link
+                to={item.url}
+                key={item.id}
+                className={`relative block text-2xl group transition-colors ${
+                  isLayananPage || scrolled || menuOpen
+                    ? "text-white"
+                    : "text-white"
+                } ${
+                  item.onlyMobile ? "lg:hidden" : ""
+                } px-3 py-3 pb-2 md:py-4 lg:mb lg:-mr-0.25 lg:text-[1rem] lg:font-semibold lg:leading-5 xl:px-8`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.title}
+                <span
+                  className={`block ${
+                    location.pathname === item.url
+                      ? "h-0.5 bg-white mt-1 max-w-full"
+                      : "max-w-0"
+                  } group-hover:max-w-full transition-all duration-500 h-0.5 bg-color-1 mt-1`}
+                ></span>
+              </Link>
+            ))}
+          </div>
+        </nav>
       </div>
+
 
       {/* Navbar Links and Menu */}
       <nav
