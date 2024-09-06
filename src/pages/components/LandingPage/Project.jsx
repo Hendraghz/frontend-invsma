@@ -35,17 +35,19 @@ const Project = () => {
       <img
         src={asset}
         alt="hijab"
-        className="w-full scale-x-[-1] h-[48rem] object-cover object-top"
+        className="w-full scale-x-[-1] h-[30rem] object-cover object-top"
       />
-      <div className="absolute -ml-[50rem] mt-[20rem]">
+      <div className="absolute -ml-[40rem] mt-[9rem]">
         <p className="text-white text-2xl font-bold">Our Projects</p>
         <p className=" text-white text-5xl font-extrabold mt-2">
           Explore investment <br /> opportunities handpicked for <br /> growth.
           Join us in shaping <br /> tomorrow success stories.
         </p>
-        <button className="px-8 py-3 bg-color-2  font-bold mt-[1rem] hover:bg-white">Project</button>
+        <button className="px-8 py-3 bg-color-2  font-bold mt-[1rem] hover:bg-white">
+          Project
+        </button>
       </div>
-      <div className="bg-white px-4 md:px-10  md:w-full 2xl:w-4/5">
+      <div className="bg-white px-4 md:px-10 md:pt-8 md:w-full 2xl:w-4/5">
         <div className="border-b border-color-1">
           <p className="title font-bold text-2xl  text-color-1 py-2">
             PROJECT TERBARU

@@ -60,8 +60,9 @@ const Navbar = () => {
 
   return (
     <div
-      className={`relative flex items-center top-0 left-0 w-full z-50 px-5 md:px-[2rem] ${!scrolled ? "" : "shadow-md"
-        } ${menuOpen ? "bg-white" : "md:bg-white"} bg-white md:bg-white`}
+      className={`relative flex items-center top-0 left-0 w-full z-50 px-5 md:px-[2rem] ${
+        !scrolled ? "" : "shadow-md"
+      } ${menuOpen ? "bg-white" : "md:bg-white"} bg-white md:bg-white`}
       style={navbarStyle}
     >
       <div className="flex items-center">
@@ -73,77 +74,49 @@ const Navbar = () => {
           />
         </Link>
       </div>
-
-      <div className="flex items-center ml-auto md:hidden z-50">
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="text-black focus:outline-none"
-        >
-          <div className="flex flex-col items-center justify-center mt-20 md:mt-0 md:flex-row">
-            {navigation.map((item) => (
+      <nav
+        className={`fixed top-0 left-0 h-full w-full bg-white transform ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-300 ease-in-out md:static md:flex md:items-center md:justify-end md:bg-transparent md:transform-none z-40`}
+      >
+        <div className="flex flex-col md:flex-row md:ml-auto items-center justify-center mt-20 md:mt-0">
+          {navigation.map((item) => (
+            <div
+              key={item.id}
+              className="relative w-full md:w-auto"
+              ref={item.title === "Layanan" ? submenuRef : null}
+            >
               <Link
                 to={item.url}
-                key={item.id}
-                className={`relative block text-2xl group transition-colors ${
+                className={`block text-lg font-bold md:text-sm group transition-colors ${
                   isLayananPage || scrolled || menuOpen
-                    ? "text-white"
-                    : "text-white"
-                } ${
-                  item.onlyMobile ? "lg:hidden" : ""
-                } px-3 py-3 pb-2 md:py-4 lg:mb lg:-mr-0.25 lg:text-[1rem] lg:font-semibold lg:leading-5 xl:px-8`}
-                onClick={() => setMenuOpen(false)}
+                    ? "text-gray-900"
+                    : "text-gray-900"
+                } px-6 py-3 md:py-4`}
+                onClick={item.title === "Layanan" ? toggleSubmenu : null}
               >
                 {item.title}
                 <span
                   className={`block ${
                     location.pathname === item.url
-                      ? "h-0.5 bg-white mt-1 max-w-full"
+                      ? "h-0.5 bg-black mt-1 max-w-full"
                       : "max-w-0"
                   } group-hover:max-w-full transition-all duration-500 h-0.5 bg-color-1 mt-1`}
-                ></span>
-              </Link>
-            ))}
-          </div>
-        </nav>
-      </div>
-
-
-      {/* Navbar Links and Menu */}
-      <nav
-        className={`fixed top-0 left-0 h-full w-full bg-white transform ${menuOpen ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 ease-in-out md:static md:flex md:items-center md:justify-end md:bg-transparent md:transform-none z-40`}
-      >
-        <div className="flex flex-col md:flex-row md:ml-auto items-center justify-center mt-20 md:mt-0">
-          {navigation.map((item) => (
-            <div key={item.id} className="relative w-full md:w-auto" ref={item.title === "Layanan" ? submenuRef : null}>
-              <Link
-                to={item.url}
-                className={`block text-lg font-bold md:text-sm group transition-colors ${isLayananPage || scrolled || menuOpen
-                  ? "text-gray-900"
-                  : "text-gray-900"
-                  } px-6 py-3 md:py-4`}
-                onClick={item.title === "Layanan" ? toggleSubmenu : null}
-              >
-                {item.title}
-                <span
-                  className={`block ${location.pathname === item.url
-                    ? "h-0.5 bg-black mt-1 max-w-full"
-                    : "max-w-0"
-                    } group-hover:max-w-full transition-all duration-500 h-0.5 bg-color-1 mt-1`}
                 ></span>
               </Link>
 
               {item.title === "Layanan" && submenuOpen && (
                 <div className="flex flex-col">
-                  {item.submenu && item.submenu.map((submenuItem) => (
-                    <Link
-                      key={submenuItem.id}
-                      to={submenuItem.url}
-                      className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100"
-                    >
-                      {submenuItem.title}
-                    </Link>
-                  ))}
+                  {item.submenu &&
+                    item.submenu.map((submenuItem) => (
+                      <Link
+                        key={submenuItem.id}
+                        to={submenuItem.url}
+                        className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100"
+                      >
+                        {submenuItem.title}
+                      </Link>
+                    ))}
                 </div>
               )}
             </div>
@@ -156,9 +129,7 @@ const Navbar = () => {
         {user ? (
           <>
             <Link to="/dashboard">
-              <button
-                className="px-3 py-2 transition-colors bg-transparent text-black hover:bg-color-1 hover:text-white rounded-md"
-              >
+              <button className="px-3 py-2 transition-colors bg-transparent text-black hover:bg-color-1 hover:text-white rounded-md">
                 Dashboard
               </button>
             </Link>
@@ -177,9 +148,7 @@ const Navbar = () => {
               </div>
             </Link>
             <Link to="/register">
-              <button
-                className="px-8 py-3 border-2 font-semibold border-black bg-white rounded-md transition-colors hover:bg-color-1 hover:text-white whitespace-nowrap"
-              >
+              <button className="px-8 py-3 border-2 font-semibold border-black bg-white rounded-md transition-colors hover:bg-color-1 hover:text-white whitespace-nowrap">
                 Daftar Sekarang
               </button>
             </Link>
