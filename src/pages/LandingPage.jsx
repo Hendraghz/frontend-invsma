@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
-
+ 
 import dash1 from "../assets/images/Asset2.webp";
 import dash2 from "../assets/images/Asset3.webp";
 import dash3 from "../assets/images/Asset4.webp";
