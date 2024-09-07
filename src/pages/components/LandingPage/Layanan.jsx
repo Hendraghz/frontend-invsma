@@ -3,7 +3,6 @@ import { layanan } from "../../data";
 const Layanan = () => {
   return (
     <div className="px-4 md:px-10 flex justify-center ">
-      {" "}
       <div className="md:w-full 2xl:w-4/5">
         <p className="text-color-1 font-bold text-xl">Services</p>
         <p className="text-black font-extrabold text-5xl mb-[2rem] mt-[1rem]">

@@ -1,7 +1,7 @@
 const Disclaimer = () => {
   return (
-    <div>
-      <div className="px-4 md:px-10 border-b border-grey-500 pb-[5rem] mt-[3rem]">
+    <div className="flex justify-center w-full">
+      <div className="px-4 md:px-10 border-b border-grey-500 pb-[5rem] mt-[3rem] md:w-full 2xl:w-4/5">
         <p className="title font-bold text-2xl mt-[2rem] py-2 text-center">
           DISCLAIMER
         </p>

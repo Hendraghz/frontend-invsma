@@ -35,9 +35,9 @@ const Project = () => {
       <img
         src={asset}
         alt="hijab"
-        className="w-full scale-x-[-1] h-[30rem] object-cover object-top"
+        className="w-full scale-x-[-1] md:h-[30rem] 2xl:h-[48rem] object-cover object-top"
       />
-      <div className="absolute -ml-[40rem] mt-[9rem]">
+      <div className="absolute md:-ml-[40rem] 2xl:-ml-[70rem] mt-[9rem]">
         <p className="text-white text-2xl font-bold">Our Projects</p>
         <p className=" text-white text-5xl font-extrabold mt-2">
           Explore investment <br /> opportunities handpicked for <br /> growth.

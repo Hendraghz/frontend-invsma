@@ -39,6 +39,8 @@ import DataProject from "./pages/admin/project/DataProject";
 import DetailProjectAdmin from "./pages/admin/project/DetailProjectAdmin";
 import DetailTransaksi from "./pages/users/transaksi/DetailTransaksi";
 import DetailImbaHasil from "./pages/users/ImbaHasil/DetailImbaHasil";
+import Kontak from "./pages/Kontak";
+import PanduanUser from "./pages/PanduanUser";
 
 function App() {
   return (
@@ -49,7 +51,9 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/layanan" element={<Layanan />} />
+            <Route path="/contact" element={<Kontak />} />
             <Route path="/sukuk" element={<Sukuk />} />
+            <Route path="/user-guide" element={<PanduanUser />} />
             <Route path="/saham-syariah" element={<SahamSyariah />} />
             <Route path="/pasar-sekunder" element={<LayananPasar />} />
             <Route path="/tentang-kami" element={<TentangKami />} />

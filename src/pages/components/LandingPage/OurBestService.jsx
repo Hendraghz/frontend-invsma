@@ -1,8 +1,10 @@
 const OurBestService = () => {
   return (
-    <div>
-      <div className="px-4 md:px-10 border-b border-grey-500 pb-3">
-        <p className="title font-bold text-xl mt-[2rem] py-2">Empower</p>
+    <div className="flex justify-center w-full">
+      <div className="px-4 md:px-10 border-b border-grey-500 pb-[5rem] md:w-full 2xl:w-4/5">
+        <p className="title font-bold text-xl mt-[2rem] py-2">
+          Our Best Service
+        </p>
         <div className="flex justify-between items-start gap-5 px-[6rem] mt-[2rem]">
           <div className="wrap w-1/2">
             <p className="text-black font-extrabold text-xl">Sukuk</p>

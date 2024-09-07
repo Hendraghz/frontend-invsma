@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
@@ -31,7 +32,7 @@ const LandingPage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
@@ -43,35 +44,89 @@ const LandingPage = () => {
     height: "100vh",
     width: "100vw",
   };
+  const text1 = "Grow your business financial";
+  const text2 = "Grow your investment potential";
+
+  const [currentText, setCurrentText] = useState(text1);
+  const [isText1, setIsText1] = useState(true); // Mengontrol teks mana yang ditampilkan
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsText1((prevIsText1) => !prevIsText1); // Toggle antara text1 dan text2
+      setCurrentText(isText1 ? text2 : text1); // Ganti teks ketika yang satu selesai
+    }, 6000); // Interval waktu setelah animasi selesai
+
+    return () => clearInterval(interval);
+  }, [isText1]); // Tambahkan dependensi `isText1`
+
+  const letters = currentText.split(" ").map((word) => word.split(""));
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const wordContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1, // Controls the delay between each word animation
+      },
+    },
+  };
+
+  const letterAnimation = {
+    hidden: { rotateY: -90, opacity: 0 }, // Flip horizontal ke kiri
+    visible: { rotateY: 0, opacity: 1, transition: { duration: 0.4 } }, // Normal
+    exit: { rotateY: 90, opacity: 0, transition: { duration: 0.4 } }, // Flip horizontal ke kanan
+  };
 
   return (
     <>
       <Navbar />
       <div
         style={heroStyle}
-        className="pt-[13rem] md:pt-[8rem] px-4 md:px-[5rem] flex flex-col justify-center items-center text-center md:text-left"
+        className="pt-[13rem] md:pt-[8rem] px-4 md:px-[5rem] flex flex-col justify-center items-start text-center md:text-left"
       >
         <div className="title text-left">
-          <p className="font-bold text-white text-3xl md:text-6xl leading-tight">
-            Grow your business financial requirement with cutting-edge
-            technology
-            <br className="hidden md:block" />{" "}
-            <span className="text-color-2">comprehensive planning</span>
+          <motion.div
+            className="flip-text"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            key={currentText}
+            style={{ display: "flex", gap: "0.5rem" }} // Adjust gap between words
+          >
+            {letters.map((word, wordIndex) => (
+              <motion.div
+                key={wordIndex}
+                variants={wordContainer}
+                className="flex font-extrabold text-white text-4xl md:text-7xl "
+              >
+                {word.map((letter, index) => (
+                  <motion.span key={index} variants={letterAnimation}>
+                    {letter}
+                  </motion.span>
+                ))}
+              </motion.div>
+            ))}
+          </motion.div>
+          <p className="font-semibold text-white text-xl md:text-2xl mt-4 md:mt-[2rem] px-4">
+            Comprehensive financial consulting services tailored to your needs
           </p>
-          <p className="font-normal text-white text-xl md:text-2xl mt-4 md:mt-[2rem]">
-            Layanan konsultasi keuangan komprehensif yang disesuaikan dengan
-            kebutuhan Anda
-          </p>
-          <p className="font-bold text-color-2 text-lg md:text-[1.2rem] mt-6 md:mt-[3rem] text-center md:text-left">
-            Mulai sekarang juga
-          </p>
-          <div className="flex flex-col md:flex-row items-center justify-center md:justify-start mt-4 md:mt-[1rem] gap-3">
-            <button className="px-4 py-2 bg-color-2 text-color-1 rounded-md hover:bg-lime-100">
-              Daftar Sebagai Investor
+          <div className="flex flex-col md:flex-row items-center justify-start md:justify-start mt-4 md:mt-[3rem] md:px-4 gap-3">
+            <button className="px-4 py-3 bg-white text-color-1 font-semibold hover:bg-color-1 hover:text-white">
+              Daftar Sekarang
             </button>
             <p className="text-white font-medium">ATAU</p>
-            <button className="px-4 py-2 bg-color-2 text-color-1 rounded-md hover:bg-lime-100">
-              Mengajukan Pendanaan
+            <button className="px-8 py-3 bg-white text-color-1 font-semibold hover:bg-color-1 hover:text-white">
+              Login
             </button>
           </div>
         </div>
@@ -92,7 +147,7 @@ const LandingPage = () => {
         {/* Team */}
         <Team />
         {/* Disclaimer */}
-        <Disclaimer/>
+        <Disclaimer />
       </div>
       <Footer />
     </>
