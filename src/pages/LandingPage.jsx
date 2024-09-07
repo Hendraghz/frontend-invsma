@@ -11,9 +11,11 @@ import dash5 from "../assets/images/Asset6.webp";
 import Layanan from "./components/LandingPage/Layanan";
 import Project from "./components/LandingPage/Project";
 import KenapaKami from "./components/LandingPage/KenapaKami";
-import Berita from "./components/LandingPage/Berita";
-import Kontak from "./components/LandingPage/Kontak";
 import SyariahPrinsip from "./components/LandingPage/SyariahPrinsip";
+import Empower from "./components/LandingPage/Empower";
+import OurBestService from "./components/LandingPage/OurBestService";
+import Team from "./components/LandingPage/Team";
+import Disclaimer from "./components/LandingPage/Disclaimer";
 
 const images = [
   `url(${dash1})`,
@@ -83,10 +85,14 @@ const LandingPage = () => {
         <Project />
         {/* Why Us */}
         <KenapaKami />
-        {/* Berita */}
-        <Berita />
-        {/* Contact */}
-        <Kontak />
+        {/*Empower  */}
+        <Empower />
+        {/* Our Best Service */}
+        <OurBestService />
+        {/* Team */}
+        <Team />
+        {/* Disclaimer */}
+        <Disclaimer/>
       </div>
       <Footer />
     </>

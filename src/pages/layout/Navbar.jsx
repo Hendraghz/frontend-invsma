@@ -153,9 +153,7 @@ const Navbar = () => {
         {user ? (
           <>
             <Link to="/dashboard">
-              <button
-                className="px-3 py-2 transition-colors bg-transparent text-black hover:bg-color-1 hover:text-white rounded-md"
-              >
+              <button className="px-3 py-2 transition-colors bg-transparent text-black hover:bg-color-1 hover:text-white rounded-md">
                 Dashboard
               </button>
             </Link>
@@ -174,9 +172,7 @@ const Navbar = () => {
               </div>
             </Link>
             <Link to="/register">
-              <button
-                className="px-8 py-3 border-2 font-semibold border-black bg-white rounded-md transition-colors hover:bg-color-1 hover:text-white whitespace-nowrap"
-              >
+              <button className="px-8 py-3 border-2 font-semibold border-black bg-white rounded-md transition-colors hover:bg-color-1 hover:text-white whitespace-nowrap">
                 Daftar Sekarang
               </button>
             </Link>

@@ -5,10 +5,12 @@ const Layanan = () => {
     <div className="px-4 md:px-10 flex justify-center ">
       {" "}
       <div className="md:w-full 2xl:w-4/5">
-        <p className="text-color-1 font-bold text-2xl">LAYANAN INVSMA</p>
-        <p className="text-black font-normal text-lg mb-[2rem]">
-          Berikut beberapa layanan unggulan INVSMA untuk memenuhi kebutuhan
-          Anda.
+        <p className="text-color-1 font-bold text-xl">Services</p>
+        <p className="text-black font-extrabold text-5xl mb-[2rem] mt-[1rem]">
+          To meet your needs{" "}
+          <span className="text-[1.1rem] font-normal text-gray-500 ml-4">
+            Facilities Funding, Individual Funded
+          </span>
         </p>
         {layanan.map((lay, index) => (
           <div key={lay.id}>
