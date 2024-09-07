@@ -46,7 +46,11 @@ const Project = () => {
         <button className="px-8 py-3 bg-color-2  font-bold mt-[1rem] hover:bg-white">
           Project
         </button>
+        <button className="px-8 py-3 bg-color-2  font-bold mt-[1rem] hover:bg-white">
+          Project
+        </button>
       </div>
+      <div className="bg-white px-4 md:px-10 md:pt-8 md:w-full 2xl:w-4/5">
       <div className="bg-white px-4 md:px-10 md:pt-8 md:w-full 2xl:w-4/5">
         <div className="border-b border-color-1">
           <p className="title font-bold text-2xl  text-color-1 py-2">

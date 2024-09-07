@@ -17,6 +17,10 @@ import Empower from "./components/LandingPage/Empower";
 import OurBestService from "./components/LandingPage/OurBestService";
 import Team from "./components/LandingPage/Team";
 import Disclaimer from "./components/LandingPage/Disclaimer";
+import Empower from "./components/LandingPage/Empower";
+import OurBestService from "./components/LandingPage/OurBestService";
+import Team from "./components/LandingPage/Team";
+import Disclaimer from "./components/LandingPage/Disclaimer";
 
 const images = [
   `url(${dash1})`,

@@ -1,4 +1,5 @@
 import image from "../../../assets/images/Whyus.svg";
+import image from "../../../assets/images/Whyus.svg";
 const KenapaKami = () => {
   return (
     <div className="flex justify-center w-full">
