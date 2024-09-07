@@ -14,14 +14,14 @@ const SahamSyariah = () => {
         <div>
             <Navbar />
 
-            {/* Main Content Section */}
             <div className="bg-color-3 pt-[4rem] md:pt-[11rem] border-b-2">
-                <div className="bg-white py-6 md:py-12 w-full md:w-3/4 px-4 md:px-6 mx-auto">
+                <div className="bg-white py-6 md:py-12 w-full md:w-3/4 px-4 md:px-6 ml-0">
                     <h1 className="text-2xl md:text-5xl font-bold text-gray-900 text-center md:text-left">
                         Building Bridges for Sustainable and Inclusive Growth
                     </h1>
                 </div>
             </div>
+
 
             <div className="bg-white py-10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
