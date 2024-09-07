@@ -1,7 +1,7 @@
 const Empower = () => {
   return (
-    <div>
-      <div className="px-4 md:px-10 border-b border-grey-500 pb-3">
+    <div className="flex justify-center w-full">
+      <div className="px-4 md:px-10 border-b border-grey-500 pb-3 md:w-full 2xl:w-4/5">
         <p className="title font-bold text-xl mt-[2rem] py-2">Empower</p>
         <div className="flex justify-end items-start gap-5 px-[6rem]">
           <div className="wrap w-[18rem]">
