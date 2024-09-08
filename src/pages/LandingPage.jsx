@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import Navbar from "./layout/Navbar";
-import Footer from "./layout/Footer";import dash1 from "../assets/images/Asset2.webp";
+import Footer from "./layout/Footer";
+import dash1 from "../assets/images/Asset2.webp";
 import dash2 from "../assets/images/Asset3.webp";
 import dash3 from "../assets/images/Asset4.webp";
 import dash4 from "../assets/images/Asset5.webp";
@@ -10,8 +11,6 @@ import dash5 from "../assets/images/Asset6.webp";
 import Layanan from "./components/LandingPage/Layanan";
 import Project from "./components/LandingPage/Project";
 import KenapaKami from "./components/LandingPage/KenapaKami";
-import Berita from "./components/LandingPage/Berita";
-import Kontak from "./components/LandingPage/Kontak";
 import SyariahPrinsip from "./components/LandingPage/SyariahPrinsip";
 import Empower from "./components/LandingPage/Empower";
 import OurBestService from "./components/LandingPage/OurBestService";
@@ -131,7 +130,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="pt-[4rem]  lg:w-screen">
+      <div className="pt-[4rem] md:w-screen  lg:w-screen">
         {/* Layanan */}
         <Layanan />
         {/* Prinsip */}

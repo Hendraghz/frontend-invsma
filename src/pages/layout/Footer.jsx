@@ -2,9 +2,8 @@ import Logo from "../../assets/images/Logo3.png";
 
 const Footer = () => {
   return (
-    <>
+    <div className="w-screen">
       <div className="flex flex-wrap items-center w-full">
-        {/* Section 1 */}
         <div className="w-full md:w-3/6 h-[3rem] bg-color-1 mt-10 flex items-center justify-end px-6 md:px-12">
           <a
             href=""
@@ -39,9 +38,10 @@ const Footer = () => {
           </a>
         </div>
       </div>
-
-      {/* Footer Main Content */}
-      <div className="text-white py-8 w-full" style={{ backgroundColor: "#1b2523" }}>
+      <div
+        className="text-white py-8 w-full"
+        style={{ backgroundColor: "#1b2523" }}
+      >
         <div className="mx-auto px-4">
           <div className="flex flex-wrap justify-center">
             <div className="w-full md:w-2/4 mb-6 md:mb-0">
@@ -60,7 +60,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

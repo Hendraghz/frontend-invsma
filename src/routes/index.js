@@ -36,15 +36,21 @@ export const navigation = [
   {
     id: "3",
     title: "Informasi",
-    url: "/informasi",
-  },
-  {
-    id: "5",
-    title: "0812-8619-7142",
-    url: "https://wa.me/6281286197142",
+    url: "#",
+    submenu: [
+      {
+        id: "3-1",
+        title: "Panduan Pengguna",
+        url: "/user-guide",
+      },
+      {
+        id: "3-2",
+        title: "Kontak",
+        url: "/contact",
+      },
+    ],
   },
 ];
-
 
 export const navigationUser = [
   {

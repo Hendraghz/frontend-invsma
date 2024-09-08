@@ -14,7 +14,7 @@ const Team = () => {
           style={heroStyle}
           className="w-full scale-x-[-1] h-[30rem] object-cover object-top"
         />
-        <div className="absolute -ml-[60rem] mt-[9rem]">
+        <div className="absolute -ml-[50rem] mt-[9rem]">
           <p className="text-white text-2xl font-bold">Team</p>
           <p className=" text-white text-5xl font-extrabold mt-2 w-[25rem]">
             Get to know the incredible individuals behind our company
