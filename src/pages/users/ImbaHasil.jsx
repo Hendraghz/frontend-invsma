@@ -99,7 +99,7 @@ const ImbaHasilDashboard = () => {
       enabled: false,
     },
     title: {
-      text: "Capital Raised by Investment Type",
+      text: "Capital Raised dari tipe Investasi",
       align: "left",
     },
     yaxis: {
@@ -117,7 +117,7 @@ const ImbaHasilDashboard = () => {
     },
     labels: donutChartData.labels,
     title: {
-      text: "Investment Types",
+      text: "Tipe Investasi",
       align: "left",
     },
     plotOptions: {
