@@ -236,11 +236,11 @@ const AjukanPendanaan = () => {
                       </td>
                       <td className="px-6 py-4 text-right flex items-center">
                         <Link to={`/edit-pendanaan/${ajuan.id}`}>
-                          <button className="font-medium text-white hover:underline px-3 py-1 bg-blue-600 rounded-md hover:bg-blue-100">
+                          <button className="font-medium text-white hover:underline px-3 py-2 bg-blue-600 rounded-md hover:bg-blue-100">
                             Edit
                           </button>
                         </Link>
-                        <button className="font-medium text-white hover:underline px-3 py-1 bg-red-600 rounded-md hover:bg-red-100 ml-2">
+                        <button className="font-medium text-white hover:underline px-3 py-2 bg-red-600 rounded-md hover:bg-red-100 ml-2">
                           Hapus
                         </button>
                       </td>

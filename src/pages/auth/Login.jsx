@@ -225,7 +225,7 @@ const Login = () => {
               Selamat Datang Di INVSMA
             </p>
             <p className="font-normal mt-4 text-white">
-              INSMA berkomitmen untuk membimbing Anda di jalur keuangan Syariah
+              INVSMA berkomitmen untuk membimbing Anda di jalur keuangan Syariah
               Anda dengan keahlian, kejujuran, dan sentuhan pribadi.
             </p>
           </div>

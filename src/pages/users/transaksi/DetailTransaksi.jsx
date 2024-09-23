@@ -1,6 +1,32 @@
+// eslint-disable-next-line no-unused-vars
+import React, { useRef } from "react";
 import Sidebar from "../../layout/Sidebar";
+import html2pdf from "html2pdf.js";
 
 const DetailTransaksi = () => {
+  const componentRef = useRef();
+
+  const handleDownload = () => {
+    const element = componentRef.current;
+
+    const opt = {
+      margin: [10, 10, 10, 10],
+      filename: "DetailTransaksi.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+      },
+      jsPDF: {
+        unit: "mm",
+        format: "a4",
+        orientation: "portrait",
+      },
+    };
+
+    html2pdf().from(element).set(opt).save();
+  };
+
   return (
     <div className="flex w-screen">
       <Sidebar />
@@ -11,8 +37,12 @@ const DetailTransaksi = () => {
               Halaman Detail Transaksi
             </h1>
           </div>
+
           <div className="wrap w-full flex justify-center mt-[4rem]">
-            <div className="detail w-1/2 px-8 py-5 border border-gray-200 rounded-md shadow-sm">
+            <div
+              className="detail w-[710px] px-8 py-5 border border-gray-200 rounded-md shadow-sm"
+              ref={componentRef}
+            >
               <div className="header">
                 <p className="font-bold text-lg">Detail Transaksi</p>
               </div>
@@ -68,7 +98,7 @@ const DetailTransaksi = () => {
                   <p className="text-sm font-bold text-gray-400">
                     Status Transaksi
                   </p>
-                  <p className="text-sm font-bold px-5 py-2 bg-green-200 rounded-xl">
+                  <p className="text-sm font-bold px-5 py-2 bg-green-200 rounded-xl flex items-center justify-center h-full status-print">
                     Success
                   </p>
                 </div>
@@ -107,15 +137,38 @@ const DetailTransaksi = () => {
                   <p className="text-sm font-bold">Credit Card</p>
                 </div>
               </div>
-              <div className="flex justify-center items-center mt-[2rem]">
-                <button className="bg-blue-400 hover:bg-blue-800 py-2.5 px-5 rounded-md font-bold text-white">
-                  Cetak Transaksi
-                </button>
-              </div>
+
             </div>
+          </div>
+          <div className="flex justify-center items-center mt-[2rem] no-print">
+            <button
+              className="bg-blue-400 hover:bg-blue-800 py-2.5 px-5 rounded-md font-bold text-white no-print"
+              onClick={handleDownload}
+            >
+              Download PDF
+            </button>
           </div>
         </div>
       </div>
+      <style>{`
+        @media print {
+          @page {
+            size: A4;
+            margin: 10mm;
+          }
+
+          .detail {
+            width: 210mm !important;
+            max-width: 210mm !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            border: none !important;
+          }
+
+          .wrap, .detail, .px-8 {
+            padding: 0 !important;
+          }
+      `}</style>
     </div>
   );
 };

@@ -1,8 +1,10 @@
+// eslint-disable-next-line no-unused-vars
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import PieChartComponent from "../components/PieChartImba";
+import Chart from "react-apexcharts";
 import Sidebar from "../layout/Sidebar";
 
-const ImbaHasil = () => {
+const ImbaHasilDashboard = () => {
   const data = [
     {
       id: 1,
@@ -37,6 +39,105 @@ const ImbaHasil = () => {
       status: "Success",
     },
   ];
+
+  // Process data for donut chart
+  const processDonutChartData = () => {
+    const chartData = {
+      Obligasi: data.filter((item) => item.tipe === "Obligasi").length,
+      Saham: data.filter((item) => item.tipe === "Saham").length,
+      "Reksa Dana": data.filter((item) => item.tipe === "Reksa Dana").length,
+    };
+
+    return {
+      labels: Object.keys(chartData),
+      series: Object.values(chartData),
+    };
+  };
+
+  // Process data for line chart (monthly capital raised per investment type)
+  const processLineChartData = () => {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    // Example monthly data for each investment type
+    const obligasiData = [0, 0, 0, 2200, 0, 0, 0, 0, 0, 0, 0, 0]; // Obligasi data per month
+    const sahamData = [0, 0, 0, 0, 3500, 0, 0, 0, 0, 0, 0, 0]; // Saham data per month
+    const reksaDanaData = [0, 0, 0, 0, 0, 1800, 0, 0, 0, 0, 0, 0]; // Reksa Dana data per month
+
+    return {
+      categories: months,
+      series: [
+        { name: "Obligasi", data: obligasiData },
+        { name: "Saham", data: sahamData },
+        { name: "Reksa Dana", data: reksaDanaData },
+      ],
+    };
+  };
+
+  const [donutChartData, setDonutChartData] = useState({ labels: [], series: [] });
+  const [lineChartData, setLineChartData] = useState({ categories: [], series: [] });
+
+  useEffect(() => {
+    const donutData = processDonutChartData();
+    setDonutChartData(donutData);
+
+    const lineData = processLineChartData();
+    setLineChartData(lineData);
+  }, []);
+
+  const lineChartOptions = {
+    chart: {
+      id: "capital-raised",
+      type: "line",
+    },
+    xaxis: {
+      categories: lineChartData.categories,
+    },
+    stroke: {
+      curve: "smooth",
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    title: {
+      text: "Capital Raised by Investment Type",
+      align: "left",
+    },
+    yaxis: {
+      labels: {
+        formatter: function (value) {
+          return `Rp ${value}`;
+        },
+      },
+    },
+  };
+
+  const donutChartOptions = {
+    chart: {
+      type: "donut",
+    },
+    labels: donutChartData.labels,
+    title: {
+      text: "Investment Types",
+      align: "left",
+    },
+    plotOptions: {
+      pie: {
+        donut: {
+          labels: {
+            show: true,
+            total: {
+              show: true,
+              label: "Total Investments",
+              formatter: function () {
+                return "Rp 10,250"; // Example
+              },
+            },
+          },
+        },
+      },
+    },
+  };
+
   return (
     <div className="flex w-screen">
       <Sidebar />
@@ -47,20 +148,21 @@ const ImbaHasil = () => {
               Halaman Imba Hasil
             </h1>
           </div>
-          <div className="filter mt-[1rem]">
-            <div className="title">
-              <h1 className="font-bold text-sm text-color-1">Imba Hasil</h1>
-              <p className="font-normal text-xs ">
-                Anda Dapat melihat secara detail mengenai pembagian Hasil Anda
-                dalam investasi
-              </p>
+
+          {/* Charts Section */}
+          <div className="flex justify-between px-10 mt-8">
+            {/* Line Chart */}
+            <div className="w-1/2">
+              <Chart options={lineChartOptions} series={lineChartData.series} type="line" height="350" />
+            </div>
+
+            {/* Donut Chart */}
+            <div className="w-1/2">
+              <Chart options={donutChartOptions} series={donutChartData.series} type="donut" height="350" />
             </div>
           </div>
-          <div className="w-full flex justify-center">
-            <div className="shadow-xl px-3 py-3 w-[25rem] h-fit">
-              <PieChartComponent />
-            </div>
-          </div>
+
+          {/* Table Section */}
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-8">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50">
@@ -124,6 +226,7 @@ const ImbaHasil = () => {
               </tbody>
             </table>
           </div>
+
           <div className="flex mt-[2rem] pb-[4rem] justify-center items-center">
             <button className="flex items-center justify-center px-3 h-8  text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 ">
               <svg
@@ -169,4 +272,4 @@ const ImbaHasil = () => {
   );
 };
 
-export default ImbaHasil;
+export default ImbaHasilDashboard;
