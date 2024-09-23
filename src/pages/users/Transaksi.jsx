@@ -59,6 +59,14 @@ const Transaksi = () => {
         email: decoded.email,
       });
 
+      console.log({
+        id_project: projectData.id,
+        id_user: userId,
+        nominal: totalInvest,
+        name: decoded.name,
+        email: decoded.email,
+      });
+
       const { snap_token } = response.data;
 
       window.snap.pay(snap_token, {
@@ -101,7 +109,7 @@ const Transaksi = () => {
       console.error("Error creating transaction:", error);
       Swal.fire({
         title: "Transaction Error",
-        text: "There was an error creating the transaction.",
+        text: error,
         icon: "error",
         confirmButtonText: "OK",
       });
@@ -119,7 +127,7 @@ const Transaksi = () => {
   return (
     <div>
       <NavbarUser />
-      <div className="pt-[6rem] flex justify-center">
+      <div className="pt-[6rem] flex justify-center w-screen">
         <div className="transaction px-3 py-3 w-[30rem] shadow-xl mt-[2rem] rounded-xl">
           <div className="namatipe pt-[1rem]">
             <p className="text-xs font-bold text-gray-500">Detail Pembelian</p>
@@ -214,7 +222,10 @@ const Transaksi = () => {
             <p className="font-bold">Rp. {totalInvest.toLocaleString()}</p>
           </div>
           <div className="w-full flex justify-between items-center mt-[2rem] gap-2">
-            <button className="px-3 py-2 bg-yellow-400 rounded-md text-black hover:bg-yellow-200">
+            <button
+              className="px-3 py-2 bg-yellow-400 rounded-md text-black hover:bg-yellow-200"
+              onClick={() => history(-1)}
+            >
               Kembali
             </button>
             <button

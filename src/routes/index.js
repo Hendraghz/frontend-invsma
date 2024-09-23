@@ -107,7 +107,7 @@ export const sidebar = [
   {
     id: 4,
     title: "Pasar Sekunder",
-    path: "/pasar-sekunder",
+    path: "/pasar-sekunder-user",
     icon: images.line,
   },
   {

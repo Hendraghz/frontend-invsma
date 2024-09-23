@@ -32,7 +32,7 @@ const BuatPendanaan = () => {
     financialHighlights: "",
     laporanLabaRugi: "",
     analisaResiko: "",
-    ktpFile:null,
+    ktpFile: null,
     image: null,
     image_legal: null,
     image_pemegangSaham: null,
@@ -85,7 +85,7 @@ const BuatPendanaan = () => {
   return (
     <div>
       <NavbarUser />
-      <div className="pt-[5rem] flex justify-center">
+      <div className="pt-[5rem] flex justify-center w-screen">
         <div>
           <div className="title text-center">
             <p className="text-2xl font-bold text-color-1">

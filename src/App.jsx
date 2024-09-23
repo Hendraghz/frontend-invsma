@@ -156,7 +156,7 @@ function App() {
               }
             />
             <Route
-              path="/pasar-sekunder"
+              path="/pasar-sekunder-user"
               element={
                 <PrivateRoute>
                   <PasarSekunder />

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getProject } from "../../../api/project/apiproject";
 import { ApiUrl } from "../../../api/baseUrl";
 import asset from "../../../assets/images/Asset4.webp";
@@ -7,6 +7,7 @@ import asset from "../../../assets/images/Asset4.webp";
 const Project = () => {
   const [loading, setLoading] = useState(true);
   const [project, setProject] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
@@ -32,21 +33,26 @@ const Project = () => {
     }).format(value);
   return (
     <div className="flex flex-col items-center">
-      <img
-        src={asset}
-        alt="hijab"
-        className="w-full scale-x-[-1] md:h-[30rem] 2xl:h-[48rem] object-cover object-top"
-      />
-      <div className="absolute md:-ml-[40rem] 2xl:-ml-[70rem] mt-[9rem]">
-        <p className="text-white text-2xl font-bold">Our Projects</p>
-        <p className=" text-white text-5xl font-extrabold mt-2">
-          Explore investment <br /> opportunities handpicked for <br /> growth.
-          Join us in shaping <br /> tomorrow success stories.
-        </p>
-        <button className="px-8 py-3 bg-color-2  font-bold mt-[1rem] hover:bg-white">
-          Project
-        </button>
-      </div>
+      {location.pathname !== "/bisnis" && (
+        <>
+          <img
+            src={asset}
+            alt="hijab"
+            className="w-full scale-x-[-1] md:h-[30rem] 2xl:h-[48rem] object-cover object-top"
+          />
+          <div className="absolute md:-ml-[40rem] 2xl:-ml-[70rem] mt-[9rem]">
+            <p className="text-white text-2xl font-bold">Our Projects</p>
+            <p className=" text-white text-5xl font-extrabold mt-2">
+              Explore investment <br /> opportunities handpicked for <br />{" "}
+              growth. Join us in shaping <br /> tomorrow success stories.
+            </p>
+            <button className="px-8 py-3 bg-color-2  font-bold mt-[1rem] hover:bg-white">
+              Project
+            </button>
+          </div>
+        </>
+      )}
+
       <div className="bg-white px-4 md:px-10 md:pt-8 md:w-full 2xl:w-4/5">
         <div className="border-b border-color-1">
           <p className="title font-bold text-2xl  text-color-1 py-2">

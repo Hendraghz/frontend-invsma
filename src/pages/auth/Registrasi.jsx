@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const Registrasi = () => {
   const [isModalVisible, setModalVisible] = useState(false);
-  const [isScrolledToEnd, setScrolledToEnd] = useState(false);
+  const [setScrolledToEnd] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confPasswordVisible, setConfPasswordVisible] = useState(false);
   const [isChecked, setChecked] = useState(false);
@@ -94,7 +94,7 @@ const Registrasi = () => {
       } catch (error) {
         Swal.fire({
           title: "Error",
-          text: "Password dan Konfirmasi Password tidak sama",
+          text: error,
           icon: "error",
         });
       }

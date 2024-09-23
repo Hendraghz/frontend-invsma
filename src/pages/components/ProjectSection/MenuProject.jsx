@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { ApiUrl } from "../../../api/baseUrl";
-import maps from "../../../assets/images/maps.png"
+import maps from "../../../assets/images/maps.png";
 
 const MenuProject = ({ projectData }) => {
   const [activeSection, setActiveSection] = useState("Informasi Project");
@@ -102,7 +102,12 @@ const MenuProject = ({ projectData }) => {
               {renderContent(projectData.lokasiProject)}
             </div>
             <div className="w-full flex justify-center">
-              <a href={projectData.urlLokasi} target="_blank" className="flex items-center flex-col gap-2 text-blue-600 ">Klik untuk Melihat lokasi Google Map
+              <a
+                href={projectData.urlLokasi}
+                target="_blank"
+                className="flex items-center flex-col gap-2 text-blue-600 "
+              >
+                Klik untuk Melihat lokasi Google Map
                 <img src={maps} alt="" className="w-[10rem]" />
               </a>
             </div>
@@ -123,8 +128,8 @@ const MenuProject = ({ projectData }) => {
   };
 
   return (
-    <div>
-      <div className="flex justify-center mt-[3rem]">
+    <div className="w-screen flex justify-center">
+      <div className="flex justify-center mt-[3rem] w-full">
         <div className="w-4/5">
           <div className="category flex items-center gap-3">
             {[
