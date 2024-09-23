@@ -44,3 +44,14 @@ export const deletePendanaan = async (id) => {
   const response = await axios.delete(`${ApiUrl}/projects/${id}`);
   return response.data.data;
 };
+
+// Adminnn
+
+export const getProjectAdmin = async () => {
+  const response = await axios.get(`${ApiUrl}/projects/admin`);
+  return response.data.data;
+};
+export const VerifPendanaan = async (formData) => {
+  const response = await axios.put(`${ApiUrl}/project/verifikasi`, formData);
+  return response.data;
+};

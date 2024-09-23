@@ -14,7 +14,10 @@ const Transaksi = () => {
   const [loading, setLoading] = useState(true);
   const [stock, setStock] = useState(0);
   const investmentPrice = 100000;
+  const [serviceFee, setServiceFee] = useState(25000);
+  const transactionFee = 5000; // Biaya transaksi
   const [totalInvest, setTotalInvest] = useState(0);
+  const [totalCost, setTotalCost] = useState(0); // Total keseluruhan
   const startDate = new Date();
   const endDate = new Date(new Date().setDate(startDate.getDate() + 30));
 
@@ -33,7 +36,26 @@ const Transaksi = () => {
   }, [id]);
 
   useEffect(() => {
-    setTotalInvest(stock * investmentPrice);
+    const checkServiceFee = async () => {
+      try {
+        const token = localStorage.getItem("authTokens");
+        const decoded = jwtDecode(token);
+        const userId = decoded.userId;
+        const response = await axios.get(`${ApiUrl}/check/${userId}`);
+        if (response.data.data === true) {
+          setServiceFee(0);
+        }
+      } catch (error) {
+        console.error("Error checking service fee:", error);
+      }
+    };
+    checkServiceFee();
+  }, []);
+
+  useEffect(() => {
+    const newTotalInvest = stock * investmentPrice;
+    setTotalInvest(newTotalInvest);
+    setTotalCost(newTotalInvest + serviceFee + transactionFee); // Hitung total keseluruhan
   }, [stock]);
 
   const handleIncrease = () => {
@@ -54,19 +76,10 @@ const Transaksi = () => {
       const response = await axios.post(`${ApiUrl}/trans`, {
         id_project: projectData.id,
         id_user: userId,
-        nominal: totalInvest,
+        nominal: totalCost,
         name: decoded.name,
         email: decoded.email,
       });
-
-      console.log({
-        id_project: projectData.id,
-        id_user: userId,
-        nominal: totalInvest,
-        name: decoded.name,
-        email: decoded.email,
-      });
-
       const { snap_token } = response.data;
 
       window.snap.pay(snap_token, {
@@ -106,13 +119,24 @@ const Transaksi = () => {
         },
       });
     } catch (error) {
+      if (error.response && error.response.data) {
+        Swal.fire({
+          title: "Transaction Error",
+          text:
+            error.response.data.message ||
+            "An error occurred during the transaction.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      } else {
+        Swal.fire({
+          title: "Transaction Error",
+          text: "An unexpected error occurred.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
       console.error("Error creating transaction:", error);
-      Swal.fire({
-        title: "Transaction Error",
-        text: error,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
     }
   };
 
@@ -159,13 +183,12 @@ const Transaksi = () => {
           <div className="harga mt-[1rem] border border-gray-400 rounded-md">
             <div className="flex justify-between px-2 py-2 border-b border-gray-400 bg-color-1 text-white">
               <p className="text-sm font-normal">
-                {" "}
-                Harga Investasi{" "}
+                Harga Investasi
                 {projectData.tipe === "Saham"
-                  ? "per lembar"
+                  ? " per SAHAM"
                   : projectData.tipe === "Obligasi"
-                  ? "per kupon"
-                  : "per unit"}
+                  ? " per OBLIGASI"
+                  : " per SUKUK"}
               </p>
               <p className="text-sm font-bold">
                 Rp. {investmentPrice.toLocaleString()}
@@ -181,9 +204,15 @@ const Transaksi = () => {
                   >
                     -
                   </button>
-                  <p className="text-md font-normal mx-1 rounded-md border border-gray-400 w-[4rem] px-2 py-0.5">
-                    {stock}
-                  </p>
+                  <input
+                    type="number"
+                    value={stock}
+                    onChange={(e) =>
+                      setStock(Math.max(0, parseInt(e.target.value)))
+                    }
+                    className="text-md font-normal mx-1 rounded-md border border-gray-400 w-[4rem] px-2 py-0.5 text-center"
+                    min="0"
+                  />
                   <button
                     onClick={handleIncrease}
                     className="px-2 py-0.5 border border-gray-300 rounded-md hover:bg-gray-300"
@@ -210,7 +239,7 @@ const Transaksi = () => {
             </div>
             <div className="flex justify-between mt-2 px-2">
               <p className="text-sm font-normal">Biaya Layanan</p>
-              <p className="text-sm font-normal">Rp. 25000</p>
+              <p className="text-sm font-normal">Rp. {serviceFee}</p>
             </div>
             <div className="flex justify-between mt-2 px-2 mb-2">
               <p className="text-sm font-normal">Biaya Transaksi</p>
@@ -219,7 +248,7 @@ const Transaksi = () => {
           </div>
           <div className="total flex justify-between items-center px-2 mt-5 border border-gray-400 rounded-md py-1">
             <p className="font-bold text-md">Total</p>
-            <p className="font-bold">Rp. {totalInvest.toLocaleString()}</p>
+            <p className="font-bold">Rp. {totalCost.toLocaleString()}</p>
           </div>
           <div className="w-full flex justify-between items-center mt-[2rem] gap-2">
             <button

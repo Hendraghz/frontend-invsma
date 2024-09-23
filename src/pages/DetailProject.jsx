@@ -98,7 +98,7 @@ const DetailProject = () => {
                   />
                 </svg>
 
-                <p>{projectData.waktu_tersisa} Hari</p>
+                <p>{projectData.sisaWaktu} Hari</p>
               </div>
             </div>
             <div className="flex items-center gap-3 w-full max-full mt-[1rem]">
@@ -135,7 +135,7 @@ const DetailProject = () => {
                     Investasi
                   </button>
                 </Link>
-                <button className="px-5 py-2 bg-white text-color-1 text-sm uppercase  rounded-md flex items-center gap-4 border border-color-gray-300 shadow-md hover:bg-gray-200">
+                <button className="px-5 py-2 bg-white text-color-1 text-sm uppercase  rounded-md flex items-center gap-4 border border-color-gray-300 shadow-md hover:bg-gray-200 text-nowrap">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -153,7 +153,7 @@ const DetailProject = () => {
                   Unduh Proposal
                 </button>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 ml-[1rem]">
                 <button className="px-2 py-2 bg-red-100 rounded-md hover:bg-red-400">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

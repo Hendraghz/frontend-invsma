@@ -63,11 +63,11 @@ export const navigationUser = [
     title: "Bisnis",
     url: "/bisnis",
   },
-  {
-    id: "2",
-    title: "Cek Sertifikat",
-    url: "/cek-sertifikat",
-  },
+  // {
+  //   id: "2",
+  //   title: "Cek Sertifikat",
+  //   url: "/cek-sertifikat",
+  // },
   {
     id: "3",
     title: "FAQ",
@@ -138,7 +138,7 @@ export const sidebarAdmin = [
     icon: images.dashboard,
   },
   {
-    id: 2,
+    id: 1,
     title: "Verifikasi Data",
     path: "/verifikasi-data-admin",
     icon: images.bisnis,
