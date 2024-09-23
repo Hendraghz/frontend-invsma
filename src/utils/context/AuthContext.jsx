@@ -77,7 +77,9 @@ export const AuthProvider = ({ children }) => {
   const refreshToken = useCallback(async () => {
     try {
       const response = await axios.get(`${ApiUrl}/token`, {
-        token: authTokens,
+        headers: {
+          Authorization: `Bearer ${authTokens}`,
+        },
       });
       const { accessToken } = response.data;
       setAuthTokens((prev) => ({ ...prev, accessToken }));
@@ -100,7 +102,7 @@ export const AuthProvider = ({ children }) => {
     if (authTokens) {
       const interval = setInterval(() => {
         refreshToken();
-      }, 14 * 60 * 1000); // Refresh token setiap 14 menit
+      }, 24 * 60 * 60 * 1000);
       return () => clearInterval(interval);
     }
   }, [authTokens, refreshToken]);

@@ -146,7 +146,7 @@ const Project = () => {
                                 Waktu Tersisa
                               </p>
                               <p className="text-base font-medium">
-                                {pro.waktu_tersisa}
+                                {pro.sisaWaktu}
                               </p>
                             </div>
                             <button className="text-color-1 text-sm bg-color-2 px-2 py-2 rounded-md">

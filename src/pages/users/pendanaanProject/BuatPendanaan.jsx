@@ -169,41 +169,6 @@ const BuatPendanaan = () => {
                           />
                         </div>
                       </div>
-                      <div className="flex items-center gap-4 w-full mt-[1rem]">
-                        <div className="mb-3 w-full">
-                          <label className="block mb-2 text-sm font-medium text-gray-900">
-                            Waktu Project
-                            <span className="text-red-500 text-lg">*</span>
-                          </label>
-                          <select
-                            name="waktu_tersisa"
-                            value={formData.waktu_tersisa}
-                            onChange={onChange}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            required
-                          >
-                            <option value="">Pilih Waktu</option>
-                            <option value="30">1 Bulan</option>
-                            <option value="60">2 Bulan</option>
-                            <option value="90">3 Bulan</option>
-                          </select>
-                        </div>
-                        <div className="mb-3 w-full">
-                          <label className="block mb-2 text-sm font-medium text-gray-900">
-                            Tanggal Pengajuan{" "}
-                            <span className="text-red-500 text-lg">*</span>
-                          </label>
-                          <input
-                            type="date"
-                            name="tanggalPengajuan"
-                            value={formData.tanggalPengajuan}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder=""
-                            required
-                            onChange={onChange}
-                          />
-                        </div>
-                      </div>
                     </div>
                     <div className="informasi mt-[1rem]">
                       <div className="flex items-center gap-4 w-full mt-[1rem]">
